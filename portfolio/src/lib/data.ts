@@ -45,7 +45,7 @@ export const TYPING_TEXTS = [
 
 export const COUNTER_STATS: CounterStat[] = [
   { label: "Years Learning", value: 4, suffix: "+", icon: "calendar" },
-  { label: "Projects Built", value: 1, suffix: "+", icon: "code" },
+  { label: "Projects Built", value: 2, suffix: "+", icon: "code" },
   { label: "Internships", value: 3, suffix: "", icon: "briefcase" },
   { label: "GitHub Contributions", value: 500, suffix: "+", icon: "git-commit" },
 ];
@@ -98,6 +98,27 @@ export const PROJECTS: Project[] = [
       "Turborepo",
     ],
     github: "https://github.com/Dhyanesh006/Rental_Hub",
+    featured: true,
+  },
+  {
+    id: "pcstore",
+    title: "PCStore",
+    description:
+      "A full-featured e-commerce platform for PC parts with authentication, shopping cart, and order management.",
+    longDescription:
+      "Built a complete PC parts store using Spring Boot with user registration and authentication, product browsing, shopping cart functionality, order history tracking, and profile management. Supports both H2 in-memory and MySQL databases, featuring animated UI popups, duplicate registration detection, and comprehensive database management scripts.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "H2 Database",
+      "Thymeleaf",
+      "Maven",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    github: "https://github.com/Dhyanesh006/pcstore",
     featured: true,
   },
 ];
