@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/data";
@@ -11,11 +11,29 @@ const sectionIds = NAV_ITEMS.map((item) => item.href.replace("#", ""));
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const lastScrollY = useRef(0);
   const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      setScrolled(currentY > 20);
+
+      if (currentY < 10) {
+        setVisible(true);
+      } else if (currentY > lastScrollY.current && currentY > 80) {
+        setVisible(false);
+        setIsOpen(false);
+      } else if (currentY < lastScrollY.current) {
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -27,97 +45,102 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-[#000000]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-          : "bg-transparent"
-      )}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <motion.a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            handleClick("#hero");
-          }}
-          className="flex items-center"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+    <AnimatePresence>
+      {visible && (
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={cn(
+            "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300",
+            scrolled
+              ? "bg-[#111111]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/50"
+              : "bg-[#111111]/60 backdrop-blur-md border border-white/5 rounded-2xl"
+          )}
         >
-          <img src="/images/stark-logo.png" alt="Logo" className="h-10 w-10 rounded-full" />
-        </motion.a>
-
-        <div className="hidden md:flex items-center gap-1">
-          {NAV_ITEMS.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => handleClick(item.href)}
-              className={cn(
-                "px-3 py-2 text-sm font-medium rounded-lg transition-colors relative flex items-center gap-1.5",
-                activeSection === item.href.replace("#", "")
-                  ? "text-[#FFFFFF]"
-                  : "text-[#A3A3A3] hover:text-[#FFFFFF]"
-              )}
+          <div className="h-14 px-4 flex items-center justify-between">
+            <motion.a
+              href="#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                handleClick("#hero");
+              }}
+              className="flex items-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="material-symbols-rounded text-[18px] leading-none">
-                {item.icon}
-              </span>
-              {item.label}
-              {activeSection === item.href.replace("#", "") && (
-                <motion.div
-                  layoutId="activeNav"
-                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FFFFFF] rounded-full"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
+              <img src="/images/stark-logo.png" alt="Logo" className="h-9 w-9 rounded-full" />
+            </motion.a>
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-[#A3A3A3] hover:text-[#FFFFFF] p-2"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#000000]/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
-          >
-            <div className="px-6 py-4 flex flex-col gap-1">
+            <div className="hidden md:flex items-center gap-0.5">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => handleClick(item.href)}
                   className={cn(
-                    "text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
+                    "px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors relative flex items-center gap-1",
                     activeSection === item.href.replace("#", "")
-                      ? "text-[#FFFFFF] bg-[#FFFFFF]/10"
-                      : "text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-white/5"
+                      ? "text-[#FFFFFF]"
+                      : "text-[#A3A3A3] hover:text-[#FFFFFF]"
                   )}
                 >
-                  <span className="material-symbols-rounded text-[18px] leading-none">
+                  <span className="material-symbols-rounded text-[16px] leading-none">
                     {item.icon}
                   </span>
                   {item.label}
+                  {activeSection === item.href.replace("#", "") && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FFFFFF] rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </button>
               ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-[#A3A3A3] hover:text-[#FFFFFF] p-2"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden overflow-hidden"
+              >
+                <div className="px-4 pb-3 flex flex-col gap-0.5">
+                  {NAV_ITEMS.map((item) => (
+                    <button
+                      key={item.href}
+                      onClick={() => handleClick(item.href)}
+                      className={cn(
+                        "text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
+                        activeSection === item.href.replace("#", "")
+                          ? "text-[#FFFFFF] bg-[#FFFFFF]/10"
+                          : "text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-white/5"
+                      )}
+                    >
+                      <span className="material-symbols-rounded text-[16px] leading-none">
+                        {item.icon}
+                      </span>
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.nav>
+      )}
+    </AnimatePresence>
   );
 }
