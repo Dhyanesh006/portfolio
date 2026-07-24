@@ -7618,3 +7618,4 @@ Import traces:
   digest: '1762288815'
 }
 ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
