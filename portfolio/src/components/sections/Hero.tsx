@@ -9,7 +9,7 @@ import { TYPING_TEXTS } from "@/lib/data";
 
 const SOCIALS = [
   { name: "GitHub", url: "https://github.com/Dhyanesh006", icon: GithubIcon },
-  { name: "LinkedIn", url: "https://linkedin.com/in/dhyanesh-v", icon: LinkedinIcon },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/dhyanesh-v-741738274", icon: LinkedinIcon },
   { name: "Mail", url: "mailto:dhyanesh@example.com", icon: null, label: "Mail" },
 ];
 
