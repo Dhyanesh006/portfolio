@@ -22,7 +22,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "GitHub",
-    url: "https://github.com/dhyanesh-v",
+    url: "https://github.com/Dhyanesh006",
     icon: "github",
   },
   {
