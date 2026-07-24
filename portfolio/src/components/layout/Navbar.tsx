@@ -60,8 +60,8 @@ export default function Navbar() {
               className={cn(
                 "px-3 py-2 text-sm font-medium rounded-lg transition-colors relative flex items-center gap-1.5",
                 activeSection === item.href.replace("#", "")
-                  ? "text-[#FBBF24]"
-                  : "text-[#A3A3A3] hover:text-[#FBBF24]"
+                  ? "text-[#FFFFFF]"
+                  : "text-[#A3A3A3] hover:text-[#FFFFFF]"
               )}
             >
               <span className="material-symbols-rounded text-[18px] leading-none">
@@ -71,7 +71,7 @@ export default function Navbar() {
               {activeSection === item.href.replace("#", "") && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FBBF24] rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#FFFFFF] rounded-full"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -81,7 +81,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-[#A3A3A3] hover:text-[#FBBF24] p-2"
+          className="md:hidden text-[#A3A3A3] hover:text-[#FFFFFF] p-2"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -104,8 +104,8 @@ export default function Navbar() {
                   className={cn(
                     "text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
                     activeSection === item.href.replace("#", "")
-                      ? "text-[#FBBF24] bg-[#FBBF24]/10"
-                      : "text-[#A3A3A3] hover:text-[#FBBF24] hover:bg-white/5"
+                      ? "text-[#FFFFFF] bg-[#FFFFFF]/10"
+                      : "text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-white/5"
                   )}
                 >
                   <span className="material-symbols-rounded text-[18px] leading-none">

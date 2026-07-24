@@ -62,7 +62,7 @@ export default function About() {
               <div className="space-y-4">
                 {INFO_ITEMS.map((item) => (
                   <div key={item.label} className="flex items-center gap-3 text-[#A3A3A3]">
-                    <span className="material-symbols-rounded text-[20px] text-[#FBBF24]">
+                    <span className="material-symbols-rounded text-[20px] text-[#FFFFFF]">
                       {item.icon}
                     </span>
                     <span className="text-sm">{item.label}</span>

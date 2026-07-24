@@ -31,7 +31,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-[#0A0A0A]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FBBF24] hover:border-[#FBBF24]/30 transition-all"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-[#0A0A0A]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] hover:border-[#FFFFFF]/30 transition-all"
                   aria-label={link.name}
                 >
                   {Icon && <Icon size={16} />}
@@ -46,7 +46,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Dhyanesh V. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Crafted with <Heart size={12} className="text-[#FBBF24] fill-[#FBBF24]" /> using Next.js
+            Crafted with <Heart size={12} className="text-[#FFFFFF] fill-[#FFFFFF]" /> using Next.js
           </p>
         </div>
       </div>

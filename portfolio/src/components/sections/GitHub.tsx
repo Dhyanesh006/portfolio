@@ -48,7 +48,7 @@ export default function GitHubSection() {
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={32} className="text-[#FBBF24] animate-spin" />
+            <Loader2 size={32} className="text-[#FFFFFF] animate-spin" />
           </div>
         ) : error || !profile ? (
           <div className="text-center py-20">
@@ -69,11 +69,11 @@ export default function GitHubSection() {
                 <img
                   src={profile.avatar_url}
                   alt={profile.name || profile.login}
-                  className="w-20 h-20 rounded-full border-2 border-[#FBBF24]/30"
+                  className="w-20 h-20 rounded-full border-2 border-[#FFFFFF]/30"
                   loading="lazy"
                 />
                 <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-[#FBBF24]">
+                  <h3 className="text-xl font-bold text-[#FFFFFF]">
                     {profile.name || profile.login}
                   </h3>
                   {profile.bio && (
@@ -86,7 +86,7 @@ export default function GitHubSection() {
                       <GithubIcon className="w-3.5 h-3.5" />
                       <span>Repos</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FBBF24]">
+                    <p className="text-2xl font-bold text-[#FFFFFF]">
                       {profile.public_repos}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export default function GitHubSection() {
                       <Users size={14} />
                       <span>Followers</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FBBF24]">
+                    <p className="text-2xl font-bold text-[#FFFFFF]">
                       {profile.followers}
                     </p>
                   </div>
@@ -104,7 +104,7 @@ export default function GitHubSection() {
                       <Users size={14} />
                       <span>Following</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FBBF24]">
+                    <p className="text-2xl font-bold text-[#FFFFFF]">
                       {profile.following}
                     </p>
                   </div>
@@ -112,7 +112,7 @@ export default function GitHubSection() {
               </div>
             </motion.div>
 
-            <h3 className="text-lg font-semibold text-[#FBBF24] mb-4">
+            <h3 className="text-lg font-semibold text-[#FFFFFF] mb-4">
               Recent Repositories
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -130,7 +130,7 @@ export default function GitHubSection() {
                   className="glass-card rounded-xl p-5 group block"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-[#FBBF24] font-semibold text-sm group-hover:underline truncate">
+                    <h4 className="text-[#FFFFFF] font-semibold text-sm group-hover:underline truncate">
                       {repo.name}
                     </h4>
                     <ExternalLink

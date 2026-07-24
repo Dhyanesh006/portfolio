@@ -66,14 +66,14 @@ export default function CommandPalette() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Navigate to section..."
-                className="flex-1 bg-transparent text-[#FBBF24] text-sm outline-none placeholder:text-[#A3A3A3]/50"
+                className="flex-1 bg-transparent text-[#FFFFFF] text-sm outline-none placeholder:text-[#A3A3A3]/50"
               />
               <button
                 onClick={() => {
                   setOpen(false);
                   setQuery("");
                 }}
-                className="text-[#A3A3A3] hover:text-[#FBBF24] transition-colors"
+                className="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors"
               >
                 <X size={16} />
               </button>
@@ -91,7 +91,7 @@ export default function CommandPalette() {
                     onClick={() => handleSelect(item.href)}
                     className="w-full flex items-center gap-3 px-5 py-3 text-left hover:bg-[#1A1A1A] transition-colors group"
                   >
-                    <span className="text-sm text-[#FBBF24]">{item.label}</span>
+                    <span className="text-sm text-[#FFFFFF]">{item.label}</span>
                     <ArrowRight
                       size={14}
                       className="text-[#A3A3A3] ml-auto opacity-0 group-hover:opacity-100 transition-opacity"

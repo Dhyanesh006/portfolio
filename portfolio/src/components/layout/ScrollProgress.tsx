@@ -11,7 +11,7 @@ export default function ScrollProgress() {
         className="h-full rounded-r-full transition-[width] duration-100 ease-out"
         style={{
           width: `${progress * 100}%`,
-          background: "linear-gradient(90deg, #FBBF24, #F59E0B)",
+          background: "linear-gradient(90deg, #FFFFFF, #CCCCCC)",
         }}
       />
     </div>
