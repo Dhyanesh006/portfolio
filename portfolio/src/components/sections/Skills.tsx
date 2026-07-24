@@ -70,7 +70,7 @@ export default function Skills() {
             onClick={() => setActiveCategory("all")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === "all"
-                ? "bg-[#FFFFFF] text-white"
+                ? "bg-[#000000] text-[#FFFFFF] border border-white/20"
                 : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FFFFFF]"
             }`}
           >
@@ -82,7 +82,7 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.key)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat.key
-                  ? "bg-[#FFFFFF] text-white"
+                  ? "bg-[#000000] text-[#FFFFFF] border border-white/20"
                   : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FFFFFF]"
               }`}
             >
