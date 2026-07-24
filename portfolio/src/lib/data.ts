@@ -45,7 +45,7 @@ export const TYPING_TEXTS = [
 
 export const COUNTER_STATS: CounterStat[] = [
   { label: "Years Learning", value: 4, suffix: "+", icon: "calendar" },
-  { label: "Projects Built", value: 15, suffix: "+", icon: "code" },
+  { label: "Projects Built", value: 1, suffix: "+", icon: "code" },
   { label: "Internships", value: 3, suffix: "", icon: "briefcase" },
   { label: "GitHub Contributions", value: 500, suffix: "+", icon: "git-commit" },
 ];
@@ -79,47 +79,25 @@ export const SKILLS: Skill[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: "pc-builder",
-    title: "PC Builder Website",
-    description:
-      "A modern PC building platform where users can configure custom computers using compatible components, estimate pricing, manage configurations and browse hardware.",
-    longDescription:
-      "Built a comprehensive PC building platform that allows users to select compatible components, get real-time price estimates, and manage their custom builds. Features include user authentication, component compatibility checking, shopping cart functionality, and a responsive dashboard for managing saved configurations.",
-    tech: ["Java", "Spring Boot", "MySQL", "Bootstrap", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/dhyanesh-v/pc-builder",
-    featured: true,
-  },
-  {
     id: "rental-hub",
-    title: "RentalHub",
+    title: "Rental Hub",
     description:
-      "A rental marketplace where users can browse, list and rent products through a clean and secure platform.",
+      "A full-stack property rental management platform for landlords, tenants, and service providers.",
     longDescription:
-      "Developed a full-featured rental marketplace enabling users to list products for rent, browse available items, and complete secure bookings. Implemented user authentication, search and filtering, booking management, and a responsive UI that works seamlessly across devices.",
-    tech: ["Java", "Spring Boot", "MySQL", "Bootstrap", "HTML", "CSS"],
-    github: "https://github.com/dhyanesh-v/rentalhub",
-    featured: true,
-  },
-  {
-    id: "air-quality",
-    title: "Air Quality Prediction",
-    description:
-      "Machine Learning project for predicting air quality using environmental datasets and regression models.",
-    longDescription:
-      "Developed a machine learning pipeline to predict air quality index using environmental datasets. Implemented multiple regression models, performed feature engineering, data cleaning, and model evaluation to achieve accurate predictions for pollution levels.",
-    tech: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
-    github: "https://github.com/dhyanesh-v/air-quality-prediction",
-    featured: true,
-  },
-  {
-    id: "ethical-hacking",
-    title: "Ethical Hacking Labs",
-    description:
-      "Practical cybersecurity labs covering penetration testing, vulnerability assessment, and network security.",
-    longDescription:
-      "Comprehensive collection of ethical hacking labs and exercises covering network scanning, vulnerability assessment, exploitation techniques, privilege escalation, and security auditing using industry-standard tools and methodologies.",
-    tech: ["Kali Linux", "Nmap", "Metasploit", "Burp Suite", "Wireshark"],
-    github: "https://github.com/dhyanesh-v/ethical-hacking-labs",
+      "Rental Hub is a comprehensive monorepo-based property management system that streamlines the entire rental lifecycle — from listing properties and processing tenant applications to managing maintenance requests and legal agreements. It features role-based dashboards for landlords, tenants, maintenance providers, and legal professionals, all powered by a NestJS API with Prisma ORM and real-time capabilities.",
+    tech: [
+      "TypeScript",
+      "Next.js 15",
+      "React 19",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Redis",
+      "Tailwind CSS",
+      "pnpm Workspaces",
+      "Turborepo",
+    ],
+    github: "https://github.com/Dhyanesh006/Rental_Hub",
     featured: true,
   },
 ];
@@ -211,4 +189,4 @@ export const SKILL_CATEGORIES = [
   { key: "cybersecurity", label: "Cybersecurity" },
 ] as const;
 
-export const GITHUB_USERNAME = "dhyanesh-v";
+export const GITHUB_USERNAME = "Dhyanesh006";
