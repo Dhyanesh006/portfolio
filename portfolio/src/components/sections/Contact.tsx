@@ -60,7 +60,7 @@ export default function Contact() {
                 <div className="w-10 h-10 rounded-lg bg-[#FFFFFF]/10 flex items-center justify-center">
                   <Mail size={18} className="text-[#FFFFFF]" />
                 </div>
-                <span className="text-sm">dhyanesh@example.com</span>
+                <span className="text-sm">dhyanesh006@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-[#A3A3A3]">
                 <div className="w-10 h-10 rounded-lg bg-[#FFFFFF]/10 flex items-center justify-center">
