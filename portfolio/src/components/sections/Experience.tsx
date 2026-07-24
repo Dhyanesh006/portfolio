@@ -25,8 +25,8 @@ export default function Experience() {
                 i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#111111] border-2 border-[#FFFFFF]/40 flex items-center justify-center z-10">
-                <Briefcase size={18} className="text-[#FFFFFF]" />
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#0A0A0A] border-2 border-[#FBBF24]/40 flex items-center justify-center z-10">
+                <Briefcase size={18} className="text-[#FBBF24]" />
               </div>
 
               <div
@@ -35,13 +35,13 @@ export default function Experience() {
                 }`}
               >
                 <div className="glass-card rounded-xl p-6">
-                  <p className="text-[#FFFFFF] text-sm font-medium mb-1">{exp.period}</p>
-                  <h3 className="text-lg font-bold text-[#FFFFFF] mb-1">{exp.title}</h3>
-                  <p className="text-[#CCCCCC] text-sm mb-3">{exp.company}</p>
+                  <p className="text-[#FBBF24] text-sm font-medium mb-1">{exp.period}</p>
+                  <h3 className="text-lg font-bold text-[#FBBF24] mb-1">{exp.title}</h3>
+                  <p className="text-[#F59E0B] text-sm mb-3">{exp.company}</p>
 
                   <ul className={`space-y-2 mb-4 ${i % 2 === 0 ? "md:text-right" : ""}`}>
                     {exp.description.map((desc, j) => (
-                      <li key={j} className="text-[#888888] text-sm leading-relaxed">
+                      <li key={j} className="text-[#A3A3A3] text-sm leading-relaxed">
                         {desc}
                       </li>
                     ))}
@@ -51,7 +51,7 @@ export default function Experience() {
                     {exp.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 text-xs rounded-md bg-[#FFFFFF]/10 text-[#FFFFFF] border border-[#FFFFFF]/20"
+                        className="px-2 py-1 text-xs rounded-md bg-[#FBBF24]/10 text-[#FBBF24] border border-[#FBBF24]/20"
                       >
                         {tag}
                       </span>

@@ -31,19 +31,19 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="glass-card rounded-2xl p-8"
           >
-            <p className="text-[#888888] text-base leading-relaxed mb-6">
+            <p className="text-[#A3A3A3] text-base leading-relaxed mb-6">
               I&apos;m a passionate Computer Science & Engineering student with a deep
               interest in building impactful software solutions. My journey in tech
               started with curiosity about how systems work, and it has evolved into a
               commitment to creating elegant, efficient applications.
             </p>
-            <p className="text-[#888888] text-base leading-relaxed mb-6">
+            <p className="text-[#A3A3A3] text-base leading-relaxed mb-6">
               With hands-on experience in full-stack development, I enjoy crafting
               end-to-end solutions using Java, Spring Boot, React, and modern web
               technologies. I believe in writing clean, maintainable code that solves
               real-world problems.
             </p>
-            <p className="text-[#888888] text-base leading-relaxed">
+            <p className="text-[#A3A3A3] text-base leading-relaxed">
               Beyond development, I&apos;m deeply fascinated by cybersecurity and cloud
               computing. I spend time exploring ethical hacking labs, understanding
               network security, and staying updated with the latest in cloud
@@ -61,8 +61,8 @@ export default function About() {
             >
               <div className="space-y-4">
                 {INFO_ITEMS.map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 text-[#888888]">
-                    <span className="material-symbols-rounded text-[20px] text-[#FFFFFF]">
+                  <div key={item.label} className="flex items-center gap-3 text-[#A3A3A3]">
+                    <span className="material-symbols-rounded text-[20px] text-[#FBBF24]">
                       {item.icon}
                     </span>
                     <span className="text-sm">{item.label}</span>

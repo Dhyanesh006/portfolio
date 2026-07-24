@@ -70,8 +70,8 @@ export default function Skills() {
             onClick={() => setActiveCategory("all")}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === "all"
-                ? "bg-[#FFFFFF] text-white"
-                : "bg-[#111111] text-[#888888] hover:text-[#FFFFFF]"
+                ? "bg-[#FBBF24] text-white"
+                : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FBBF24]"
             }`}
           >
             All
@@ -82,8 +82,8 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.key)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat.key
-                  ? "bg-[#FFFFFF] text-white"
-                  : "bg-[#111111] text-[#888888] hover:text-[#FFFFFF]"
+                  ? "bg-[#FBBF24] text-white"
+                  : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FBBF24]"
               }`}
             >
               {cat.label}
@@ -109,13 +109,13 @@ export default function Skills() {
                   whileHover={{ y: -4 }}
                   className="skill-card glass-card rounded-xl p-5 text-center cursor-default"
                 >
-                  <div className="text-[#FFFFFF] w-8 h-8 mx-auto mb-3">
+                  <div className="text-[#FBBF24] w-8 h-8 mx-auto mb-3">
                     {Icon && <Icon size={32} />}
                   </div>
-                  <p className="text-sm font-medium text-[#FFFFFF] mb-3">
+                  <p className="text-sm font-medium text-[#FBBF24] mb-3">
                     {skill.name}
                   </p>
-                  <div className="w-full bg-[#222222] rounded-full h-1.5 mb-1">
+                  <div className="w-full bg-[#1A1A1A] rounded-full h-1.5 mb-1">
                     <motion.div
                       className="progress-bar"
                       initial={{ width: 0 }}
@@ -124,7 +124,7 @@ export default function Skills() {
                       transition={{ duration: 1.5, ease: "easeOut" }}
                     />
                   </div>
-                  <p className="text-xs text-[#888888]">{skill.level}%</p>
+                  <p className="text-xs text-[#A3A3A3]">{skill.level}%</p>
                 </motion.div>
               );
             })}
