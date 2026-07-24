@@ -53,10 +53,8 @@ export default function Navbar() {
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className={cn(
-            "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300",
-            scrolled
-              ? "bg-[#111111]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/50"
-              : "bg-[#111111]/60 backdrop-blur-md border border-white/5 rounded-2xl"
+            "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300 rounded-2xl overflow-hidden",
+            scrolled ? "liquid-glass-scrolled" : "liquid-glass"
           )}
         >
           <div className="h-14 px-4 flex items-center justify-between">
@@ -115,7 +113,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="md:hidden overflow-hidden"
+                className="md:hidden overflow-hidden liquid-glass-scrolled rounded-2xl mt-1"
               >
                 <div className="px-4 pb-3 flex flex-col gap-0.5">
                   {NAV_ITEMS.map((item) => (

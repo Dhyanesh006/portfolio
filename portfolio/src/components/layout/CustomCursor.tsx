@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
@@ -76,14 +77,17 @@ export default function CustomCursor() {
       <div
         ref={dotRef}
         className="fixed top-0 left-0 w-[6px] h-[6px] bg-white rounded-full pointer-events-none z-[9999] hidden md:block"
+        style={{ mixBlendMode: "difference" }}
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-[30px] h-[30px] rounded-full border-2 border-accent/50 pointer-events-none z-[9998] hidden md:block transition-[width,height,border-color] duration-300"
+        className={cn(
+          "fixed top-0 left-0 rounded-full pointer-events-none z-[9998] hidden md:block",
+          hovering ? "liquid-cursor liquid-cursor-hover" : "liquid-cursor"
+        )}
         style={{
           width: hovering ? 48 : 30,
           height: hovering ? 48 : 30,
-          borderColor: hovering ? "rgba(6, 182, 212, 0.6)" : "rgba(59, 130, 246, 0.5)",
           mixBlendMode: "difference",
         }}
       />
