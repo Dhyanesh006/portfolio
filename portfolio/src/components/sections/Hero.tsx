@@ -13,6 +13,11 @@ const SOCIALS = [
   { name: "Mail", url: "mailto:dhyanesh@example.com", icon: null, label: "Mail" },
 ];
 
+function seededRandom(seed: number) {
+  const x = Math.sin(seed * 9301 + 49297) % 233280;
+  return (x < 0 ? x + 233280 : x) / 233280;
+}
+
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
 
@@ -20,11 +25,11 @@ export default function Hero() {
     () =>
       Array.from({ length: 50 }, (_, i) => ({
         id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 2 + 1,
-        delay: Math.random() * 3,
-        duration: Math.random() * 3 + 2,
+        x: seededRandom(i * 7 + 1) * 100,
+        y: seededRandom(i * 13 + 3) * 100,
+        size: seededRandom(i * 3 + 5) * 2 + 1,
+        delay: seededRandom(i * 11 + 7) * 3,
+        duration: seededRandom(i * 17 + 9) * 3 + 2,
       })),
     []
   );
