@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const INFO_ITEMS = [
-  { icon: "person", label: "Dhyanesh V" },
   { icon: "cake", label: "19" },
   { icon: "location_on", label: "Coimbatore, India" },
   { icon: "school", label: "B.Tech CSE Student" },
@@ -59,6 +58,17 @@ export default function About() {
               transition={{ duration: 0.5 }}
               className="glass-card rounded-2xl p-6"
             >
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src="/images/profile.jpg"
+                  alt="Dhyanesh V"
+                  className="w-20 h-20 rounded-full object-cover border-2 border-white/20"
+                />
+                <div>
+                  <h3 className="text-[#FFFFFF] font-bold text-lg">Dhyanesh V</h3>
+                  <p className="text-[#A3A3A3] text-sm">Full Stack Developer</p>
+                </div>
+              </div>
               <div className="space-y-4">
                 {INFO_ITEMS.map((item) => (
                   <div key={item.label} className="flex items-center gap-3 text-[#A3A3A3]">
