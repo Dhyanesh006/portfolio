@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
@@ -18,21 +18,33 @@ function seededRandom(seed: number) {
   return (x < 0 ? x + 233280 : x) / 233280;
 }
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  delay: number;
+  duration: number;
+}
+
+function generateParticles(): Particle[] {
+  return Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    x: seededRandom(i * 7 + 1) * 100,
+    y: seededRandom(i * 13 + 3) * 100,
+    size: seededRandom(i * 3 + 5) * 2 + 1,
+    delay: seededRandom(i * 11 + 7) * 3,
+    duration: seededRandom(i * 17 + 9) * 3 + 2,
+  }));
+}
+
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
+  const [particles, setParticles] = useState<Particle[]>([]);
 
-  const particles = useMemo(
-    () =>
-      Array.from({ length: 50 }, (_, i) => ({
-        id: i,
-        x: seededRandom(i * 7 + 1) * 100,
-        y: seededRandom(i * 13 + 3) * 100,
-        size: seededRandom(i * 3 + 5) * 2 + 1,
-        delay: seededRandom(i * 11 + 7) * 3,
-        duration: seededRandom(i * 17 + 9) * 3 + 2,
-      })),
-    []
-  );
+  useEffect(() => {
+    setParticles(generateParticles());
+  }, []);
 
   return (
     <section
@@ -44,14 +56,14 @@ export default function Hero() {
           <div
             key={p.id}
             className="star-particle"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-              animationDelay: `${p.delay}s`,
-              animationDuration: `${p.duration}s`,
-            }}
+              style={{
+                left: `${p.x.toFixed(4)}%`,
+                top: `${p.y.toFixed(4)}%`,
+                width: `${p.size.toFixed(2)}px`,
+                height: `${p.size.toFixed(2)}px`,
+                animationDelay: `${p.delay.toFixed(4)}s`,
+                animationDuration: `${p.duration.toFixed(4)}s`,
+              }}
           />
         ))}
 
