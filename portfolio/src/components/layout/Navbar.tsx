@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/data";
@@ -11,29 +11,11 @@ const sectionIds = NAV_ITEMS.map((item) => item.href.replace("#", ""));
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
-  const lastScrollY = useRef(0);
   const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      setScrolled(currentY > 20);
-
-      if (currentY < 10) {
-        setVisible(true);
-      } else if (currentY > lastScrollY.current && currentY > 80) {
-        setVisible(false);
-        setIsOpen(false);
-      } else if (currentY < lastScrollY.current) {
-        setVisible(true);
-      }
-
-      lastScrollY.current = currentY;
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -45,18 +27,15 @@ export default function Navbar() {
   };
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.nav
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className={cn(
-            "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300 rounded-2xl overflow-hidden",
-            scrolled ? "liquid-glass-scrolled" : "liquid-glass"
-          )}
-        >
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={cn(
+        "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300 rounded-2xl overflow-hidden",
+        scrolled ? "liquid-glass-scrolled" : "liquid-glass"
+      )}
+    >
           <div className="h-14 px-4 flex items-center justify-between">
             <motion.a
               href="#hero"
@@ -138,7 +117,5 @@ export default function Navbar() {
             )}
           </AnimatePresence>
         </motion.nav>
-      )}
-    </AnimatePresence>
   );
 }

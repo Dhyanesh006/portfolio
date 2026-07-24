@@ -7520,3 +7520,101 @@ https://react.dev/link/hydration-mismatch
             ...
  
 ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ./src/components/layout/Navbar.tsx:121:5
+Expression expected
+  [90m119 |[0m         </motion.nav>
+  [90m120 |[0m       )}
+[31m[1m>[0m [90m121 |[0m     </[33mAnimatePresence[0m>
+  [90m    |[0m     [31m[1m^[0m
+  [90m122 |[0m   );
+  [90m123 |[0m }
+  [90m124 |[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+
+./src/components/layout/Navbar.tsx:121:6
+Unterminated regexp literal
+  [90m119 |[0m         </motion.nav>
+  [90m120 |[0m       )}
+[31m[1m>[0m [90m121 |[0m     </[33mAnimatePresence[0m>
+  [90m    |[0m      [31m[1m^^^^^^^^^^^^^^^^^[0m
+  [90m122 |[0m   );
+  [90m123 |[0m }
+  [90m124 |[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+[browser] Uncaught Error: ./src/components/layout/Navbar.tsx:121:5
+Expression expected
+  119 |         </motion.nav>
+  120 |       )}
+> 121 |     </AnimatePresence>
+      |     ^
+  122 |   );
+  123 | }
+  124 |
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/layout/Navbar.tsx:121:5)
+    at <unknown> (Error: (./src/components/layout/Navbar.tsx:121:5)
+⨯ ReferenceError: AnimatePresence is not defined
+    at Navbar (src\components\layout\Navbar.tsx:89:12)
+  87 |           </div>
+  88 |
+> 89 |           <AnimatePresence>
+     |            ^
+  90 |             {isOpen && (
+  91 |               <motion.div
+  92 |                 initial={{ opacity: 0, height: 0 }} {
+  digest: '1762288815'
+}
+⨯ ReferenceError: AnimatePresence is not defined
+    at Navbar (src\components\layout\Navbar.tsx:89:12)
+  87 |           </div>
+  88 |
+> 89 |           <AnimatePresence>
+     |            ^
+  90 |             {isOpen && (
+  91 |               <motion.div
+  92 |                 initial={{ opacity: 0, height: 0 }} {
+  digest: '1762288815'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
