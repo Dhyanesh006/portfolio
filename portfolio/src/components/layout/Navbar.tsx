@@ -58,17 +58,20 @@ export default function Navbar() {
               key={item.href}
               onClick={() => handleClick(item.href)}
               className={cn(
-                "px-3 py-2 text-sm font-medium rounded-lg transition-colors relative",
+                "px-3 py-2 text-sm font-medium rounded-lg transition-colors relative flex items-center gap-1.5",
                 activeSection === item.href.replace("#", "")
-                  ? "text-accent"
-                  : "text-muted hover:text-text"
+                  ? "text-[#3B82F6]"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
               )}
             >
+              <span className="material-symbols-rounded text-[18px] leading-none">
+                {item.icon}
+              </span>
               {item.label}
               {activeSection === item.href.replace("#", "") && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-accent rounded-full"
+                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#3B82F6] rounded-full"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -78,7 +81,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-muted hover:text-text p-2"
+          className="md:hidden text-[#94A3B8] hover:text-[#F8FAFC] p-2"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -99,12 +102,15 @@ export default function Navbar() {
                   key={item.href}
                   onClick={() => handleClick(item.href)}
                   className={cn(
-                    "text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                    "text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
                     activeSection === item.href.replace("#", "")
-                      ? "text-accent bg-accent/10"
-                      : "text-muted hover:text-text hover:bg-white/5"
+                      ? "text-[#3B82F6] bg-[#3B82F6]/10"
+                      : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5"
                   )}
                 >
+                  <span className="material-symbols-rounded text-[18px] leading-none">
+                    {item.icon}
+                  </span>
                   {item.label}
                 </button>
               ))}

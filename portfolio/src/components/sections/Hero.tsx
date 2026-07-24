@@ -2,16 +2,16 @@
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Download, ArrowDown, Mail } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
 import { useTypingAnimation } from "@/hooks/use-typing-animation";
-import { TYPING_TEXTS, SOCIAL_LINKS } from "@/lib/data";
+import { TYPING_TEXTS } from "@/lib/data";
 
-const ICON_MAP: Record<string, React.ElementType> = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  mail: Mail,
-};
+const SOCIALS = [
+  { name: "GitHub", url: "https://github.com/Dhyanesh006", icon: GithubIcon },
+  { name: "LinkedIn", url: "https://linkedin.com/in/dhyanesh-v", icon: LinkedinIcon },
+  { name: "Mail", url: "mailto:dhyanesh@example.com", icon: null, label: "Mail" },
+];
 
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
@@ -68,31 +68,13 @@ export default function Hero() {
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
-          className="absolute w-72 h-72 rounded-full blur-3xl opacity-10"
-          style={{ background: "#8B5CF6", bottom: "10%", left: "30%" }}
-          animate={{
-            x: [0, 60, -30, 0],
-            y: [0, -50, 80, 0],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-        />
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4"
-        >
-          <p className="text-[#94A3B8] text-lg mb-2">Hello, I&apos;m</p>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-gradient mb-6"
         >
           Dhyanesh V
@@ -101,7 +83,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="h-12 flex items-center justify-center mb-8"
         >
           <span className="text-xl md:text-2xl text-[#94A3B8]">
@@ -113,61 +95,43 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex items-center justify-center gap-4 mb-10 flex-wrap"
         >
-          <motion.a
-            href="#"
-            download
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white text-sm"
-            style={{
-              background: "linear-gradient(135deg, #3B82F6, #06B6D4)",
-            }}
-          >
-            <Download size={18} />
-            Download Resume
-          </motion.a>
-
-          <motion.a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm border border-[#3B82F6]/30 text-[#3B82F6] hover:bg-[#3B82F6]/10 transition-colors"
-          >
-            <ArrowDown size={18} />
-            View Projects
-          </motion.a>
+          {SOCIALS.map((s) => (
+            <motion.a
+              key={s.name}
+              href={s.url}
+              target={s.url.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#3B82F6] hover:bg-[#3B82F6]/10 transition-colors"
+            >
+              {s.icon ? <s.icon className="w-4 h-4" /> : <span className="material-symbols-rounded text-[18px]">mail</span>}
+              {s.name}
+            </motion.a>
+          ))}
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex items-center justify-center gap-4"
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
-          {SOCIAL_LINKS.map((link) => {
-            const Icon = ICON_MAP[link.icon];
-            return (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-11 h-11 rounded-full flex items-center justify-center bg-[#111827]/60 backdrop-blur-sm border border-white/5 text-[#94A3B8] hover:text-[#3B82F6] hover:border-[#3B82F6]/30 transition-colors"
-                aria-label={link.name}
-              >
-                {Icon && <Icon size={18} />}
-              </motion.a>
-            );
-          })}
+          <motion.a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm border border-[#3B82F6]/30 text-[#3B82F6] hover:bg-[#3B82F6]/10 transition-colors"
+          >
+            <ArrowDown size={18} />
+            Scroll Down
+          </motion.a>
         </motion.div>
       </div>
 

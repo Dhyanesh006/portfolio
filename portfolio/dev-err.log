@@ -5326,3 +5326,891 @@ https://react.dev/link/hydration-mismatch
               ...
             ...
  
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <AnimatePresence>
+                    <CustomCursor>
+                    <ScrollProgress>
+                    <Navbar>
+                    <CommandPalette>
+                    <main>
+                      <Hero>
+                        <section id="hero" className="relative m...">
+                          <div className="absolute i...">
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "42.82575745077688%"
+-                               left: "82.9358%"
++                               top: "11.144961632162198%"
+-                               top: "85.7763%"
++                               width: 2.441490417738345
+-                               width: "2.73834px"
++                               height: 2.441490417738345
+-                               height: "2.73834px"
++                               animationDelay: "2.72302036742886s"
++                               animationDuration: "2.6404344207294006s"
+-                               animation-delay: "2.93552s"
+-                               animation-duration: "4.19903s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "49.35946590669038%"
+-                               left: "0.816122%"
++                               top: "85.97201758754255%"
+-                               top: "27.723%"
++                               width: 1.3947823222906028
+-                               width: "2.91483px"
++                               height: 1.3947823222906028
+-                               height: "2.91483px"
++                               animationDelay: "2.7885795600353736s"
++                               animationDuration: "4.399355056633806s"
+-                               animation-delay: "1.23009s"
+-                               animation-duration: "3.99136s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "39.523308818162086%"
+-                               left: "49.7823%"
++                               top: "58.731882613348176%"
+-                               top: "6.53041%"
++                               width: 2.5248599222273445
+-                               width: "1.55436px"
++                               height: 2.5248599222273445
+-                               height: "1.55436px"
++                               animationDelay: "2.2520979759285833s"
++                               animationDuration: "4.7565953424223295s"
+-                               animation-delay: "1.08721s"
+-                               animation-duration: "4.20956s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "85.04213613862017%"
+-                               left: "88.2503%"
++                               top: "63.20927099514038%"
+-                               top: "17.2871%"
++                               width: 1.215858805728218
+-                               width: "1.35447px"
++                               height: 1.215858805728218
+-                               height: "1.35447px"
++                               animationDelay: "0.9483183116370492s"
++                               animationDuration: "3.8929763105843556s"
+-                               animation-delay: "2.58726s"
+-                               animation-duration: "3.09893s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "35.83566438685667%"
+-                               left: "21.9161%"
++                               top: "7.147916041540214%"
+-                               top: "51.4661%"
++                               width: 1.235682203528269
+-                               width: "1.55756px"
++                               height: 1.235682203528269
+-                               height: "1.55756px"
++                               animationDelay: "1.9224404365730128s"
++                               animationDuration: "3.297799582324192s"
+-                               animation-delay: "1.06862s"
+-                               animation-duration: "2.79391s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "35.14201133349245%"
+-                               left: "28.898%"
++                               top: "6.292669912215265%"
+-                               top: "73.9619%"
++                               width: 1.5243586714392747
+-                               width: "1.29145px"
++                               height: 1.5243586714392747
+-                               height: "1.29145px"
++                               animationDelay: "0.8656765387619859s"
++                               animationDuration: "3.3468186758953387s"
+-                               animation-delay: "1.14804s"
+-                               animation-duration: "2.66196s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "14.589948668223784%"
+-                               left: "41.0721%"
++                               top: "72.49397905309249%"
+-                               top: "5.4686%"
++                               width: 1.1103792383974007
+-                               width: "1.11725px"
++                               height: 1.1103792383974007
+-                               height: "1.11725px"
++                               animationDelay: "1.483081501928963s"
++                               animationDuration: "2.970159328679917s"
+-                               animation-delay: "1.96723s"
+-                               animation-duration: "4.70506s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "40.94257005814204%"
+-                               left: "55.6489%"
++                               top: "19.307557173124078%"
+-                               top: "57.3121%"
++                               width: 2.9819149894303774
+-                               width: "1.51906px"
++                               height: 2.9819149894303774
+-                               height: "1.51906px"
++                               animationDelay: "1.4692722257327708s"
++                               animationDuration: "3.5899929121341505s"
+-                               animation-delay: "2.16612s"
+-                               animation-duration: "4.91168s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "6.574986255624992%"
+-                               left: "38.7973%"
++                               top: "98.39666604070696%"
+-                               top: "6.62465%"
++                               width: 1.2562690912771426
+-                               width: "2.30865px"
++                               height: 1.2562690912771426
+-                               height: "2.30865px"
++                               animationDelay: "1.6641163970599293s"
++                               animationDuration: "3.1683514592299926s"
+-                               animation-delay: "1.90276s"
+-                               animation-duration: "4.93911s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "40.93828152640604%"
+-                               left: "65.9048%"
++                               top: "48.9284947967719%"
+-                               top: "46.1161%"
++                               width: 1.202481062006301
+-                               width: "2.14328px"
++                               height: 1.202481062006301
+-                               height: "2.14328px"
++                               animationDelay: "0.7017225362311349s"
++                               animationDuration: "2.0131031783295454s"
+-                               animation-delay: "1.34141s"
+-                               animation-duration: "3.91535s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "35.31655453877976%"
+-                               left: "74.845%"
++                               top: "45.679498422159845%"
+-                               top: "6.84311%"
++                               width: 2.381003039024318
+-                               width: "1.89747px"
++                               height: 2.381003039024318
+-                               height: "1.89747px"
++                               animationDelay: "0.17798216799930133s"
++                               animationDuration: "4.812158189872921s"
+-                               animation-delay: "1.73975s"
+-                               animation-duration: "2.41685s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "54.051887113575006%"
+-                               left: "0.79244%"
++                               top: "27.976981502347797%"
+-                               top: "24.6838%"
++                               width: 2.330392951664815
+-                               width: "1.4862px"
++                               height: 2.330392951664815
+-                               height: "1.4862px"
++                               animationDelay: "2.855849845287386s"
++                               animationDuration: "4.141211405134769s"
+-                               animation-delay: "1.83688s"
+-                               animation-duration: "2.34131s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "71.47846409003095%"
+-                               left: "61.2161%"
++                               top: "35.06186874572151%"
+-                               top: "82.959%"
++                               width: 2.582689518991536
+-                               width: "1.00338px"
++                               height: 2.582689518991536
+-                               height: "1.00338px"
++                               animationDelay: "0.73623632257617s"
++                               animationDuration: "3.3982188020334885s"
+-                               animation-delay: "1.37341s"
+-                               animation-duration: "2.14068s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "18.774843207452253%"
+-                               left: "82.1999%"
++                               top: "95.43507778702657%"
+-                               top: "15.1111%"
++                               width: 2.531759534355192
+-                               width: "1.93296px"
++                               height: 2.531759534355192
+-                               height: "1.93296px"
++                               animationDelay: "0.81820452052892s"
++                               animationDuration: "3.192216926038048s"
+-                               animation-delay: "0.105956s"
+-                               animation-duration: "2.42355s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "72.4075199849522%"
+-                               left: "30.1898%"
++                               top: "25.89185617392664%"
+-                               top: "76.517%"
++                               width: 2.0431287628877963
+-                               width: "1.83687px"
++                               height: 2.0431287628877963
+-                               height: "1.83687px"
++                               animationDelay: "2.727384208275371s"
++                               animationDuration: "3.6962667229055866s"
+-                               animation-delay: "0.697794s"
+-                               animation-duration: "4.96494s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "66.79449044730316%"
+-                               left: "69.075%"
++                               top: "75.61173695646679%"
+-                               top: "7.87911%"
++                               width: 1.2378311004407319
+-                               width: "1.87593px"
++                               height: 1.2378311004407319
+-                               height: "1.87593px"
++                               animationDelay: "0.46894228930855064s"
++                               animationDuration: "2.3044394156780807s"
+-                               animation-delay: "1.50251s"
+-                               animation-duration: "4.8166s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "12.461133443186934%"
+-                               left: "83.8022%"
++                               top: "46.592183400762934%"
+-                               top: "85.0589%"
++                               width: 2.45668050248662
+-                               width: "2.81833px"
++                               height: 2.45668050248662
+-                               height: "2.81833px"
++                               animationDelay: "1.9265820179747637s"
++                               animationDuration: "4.334779489943681s"
+-                               animation-delay: "2.32198s"
+-                               animation-duration: "4.14713s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "81.90809100120386%"
+-                               left: "4.43305%"
++                               top: "65.88910876442294%"
+-                               top: "37.8733%"
++                               width: 2.465821802354153
+-                               width: "1.4664px"
++                               height: 2.465821802354153
+-                               height: "1.4664px"
++                               animationDelay: "0.18365286782413992s"
++                               animationDuration: "2.2257641376556654s"
+-                               animation-delay: "1.18245s"
+-                               animation-duration: "2.94063s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "46.52430755366327%"
+-                               left: "48.56%"
++                               top: "67.37444171878597%"
+-                               top: "45.052%"
++                               width: 2.096185934529516
+-                               width: "2.39184px"
++                               height: 2.096185934529516
+-                               height: "2.39184px"
++                               animationDelay: "0.4759185173146262s"
++                               animationDuration: "3.98657198004443s"
+-                               animation-delay: "0.481345s"
+-                               animation-duration: "2.88612s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "12.589626255878661%"
+-                               left: "81.1941%"
++                               top: "34.34102860463264%"
+-                               top: "44.1553%"
++                               width: 2.145457159251883
+-                               width: "1.19924px"
++                               height: 2.145457159251883
+-                               height: "1.19924px"
++                               animationDelay: "1.516079055084003s"
++                               animationDuration: "3.1514826447501854s"
+-                               animation-delay: "0.577543s"
+-                               animation-duration: "4.73301s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "8.166760392740668%"
+-                               left: "91.5608%"
++                               top: "16.431069500365915%"
+-                               top: "60.3304%"
++                               width: 2.1349452455151448
+-                               width: "1.98845px"
++                               height: 2.1349452455151448
+-                               height: "1.98845px"
++                               animationDelay: "1.1482240894388251s"
++                               animationDuration: "4.095006064334179s"
+-                               animation-delay: "2.89657s"
+-                               animation-duration: "4.51509s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "56.091305591993766%"
+-                               left: "21.8713%"
++                               top: "93.96578638971337%"
+-                               top: "87.0424%"
++                               width: 2.253834590984213
+-                               width: "2.30903px"
++                               height: 2.253834590984213
+-                               height: "2.30903px"
++                               animationDelay: "2.9163961060277486s"
++                               animationDuration: "4.716909654797236s"
+-                               animation-delay: "2.63827s"
+-                               animation-duration: "3.29551s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "49.05136823435497%"
+-                               left: "42.6261%"
++                               top: "58.324606303325666%"
+-                               top: "81.6043%"
++                               width: 1.1829045095510287
+-                               width: "1.378px"
++                               height: 1.1829045095510287
+-                               height: "1.378px"
++                               animationDelay: "0.29560597241529174s"
++                               animationDuration: "2.2759493509523163s"
+-                               animation-delay: "0.374284s"
+-                               animation-duration: "2.66507s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "92.05927013052%"
+-                               left: "51.5451%"
++                               top: "14.065996156737292%"
+-                               top: "84.5427%"
++                               width: 1.0296670873584293
+-                               width: "2.92591px"
++                               height: 1.0296670873584293
+-                               height: "2.92591px"
++                               animationDelay: "1.979581218306505s"
++                               animationDuration: "3.2732786825338103s"
+-                               animation-delay: "0.99794s"
+-                               animation-duration: "3.5852s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "54.649878677576936%"
+-                               left: "0.483129%"
++                               top: "87.3553065075452%"
+-                               top: "47.4926%"
++                               width: 1.9686162548994428
+-                               width: "1.73009px"
++                               height: 1.9686162548994428
+-                               height: "1.73009px"
++                               animationDelay: "1.2362883303524128s"
++                               animationDuration: "4.873614932732242s"
+-                               animation-delay: "1.57503s"
+-                               animation-duration: "2.56221s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "71.05462308867291%"
+-                               left: "23.1645%"
++                               top: "41.99953572003123%"
+-                               top: "71.0463%"
++                               width: 1.0130723285567254
+-                               width: "1.31716px"
++                               height: 1.0130723285567254
+-                               height: "1.31716px"
++                               animationDelay: "0.5638614633648412s"
++                               animationDuration: "3.4601187976332493s"
+-                               animation-delay: "2.42418s"
+-                               animation-duration: "4.91475s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "39.90958728650041%"
+-                               left: "16.2215%"
++                               top: "83.59386097056922%"
+-                               top: "20.6334%"
++                               width: 1.5536635553671991
+-                               width: "2.22436px"
++                               height: 1.5536635553671991
+-                               height: "2.22436px"
++                               animationDelay: "1.874359577253995s"
++                               animationDuration: "3.7477901809976735s"
+-                               animation-delay: "0.497428s"
+-                               animation-duration: "3.94198s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "20.20977077426801%"
+-                               left: "96.672%"
++                               top: "5.840473030788196%"
+-                               top: "9.94917%"
++                               width: 1.5498631351823622
+-                               width: "1.59203px"
++                               height: 1.5498631351823622
+-                               height: "1.59203px"
++                               animationDelay: "2.4708665512491255s"
++                               animationDuration: "4.7978566190392s"
+-                               animation-delay: "1.38706s"
+-                               animation-duration: "2.29447s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "72.13564806942738%"
+-                               left: "30.8244%"
++                               top: "14.46472936024643%"
+-                               top: "47.477%"
++                               width: 1.341344675263355
+-                               width: "1.29969px"
++                               height: 1.341344675263355
+-                               height: "1.29969px"
++                               animationDelay: "1.2820381649124712s"
++                               animationDuration: "4.337440826301126s"
+-                               animation-delay: "1.98625s"
+-                               animation-duration: "4.07186s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "87.06801528221176%"
+-                               left: "89.0857%"
++                               top: "32.01262955723654%"
+-                               top: "80.072%"
++                               width: 2.8768224532441664
+-                               width: "1.67809px"
++                               height: 2.8768224532441664
+-                               height: "1.67809px"
++                               animationDelay: "1.8426893183922197s"
++                               animationDuration: "4.264636677312161s"
+-                               animation-delay: "0.253626s"
+-                               animation-duration: "3.10027s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "80.19833446150216%"
+-                               left: "25.3635%"
++                               top: "91.68380475394866%"
+-                               top: "76.4651%"
++                               width: 2.139751221378785
+-                               width: "2.49334px"
++                               height: 2.139751221378785
+-                               height: "2.49334px"
++                               animationDelay: "1.879480031149591s"
++                               animationDuration: "3.99370177783946s"
+-                               animation-delay: "1.4222s"
+-                               animation-duration: "3.93898s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "41.322391451070764%"
+-                               left: "96.1979%"
++                               top: "47.45684102718957%"
+-                               top: "27.0242%"
++                               width: 2.2603803804782583
+-                               width: "2.7061px"
++                               height: 2.2603803804782583
+-                               height: "2.7061px"
++                               animationDelay: "1.5991273987441947s"
++                               animationDuration: "3.0984542500961827s"
+-                               animation-delay: "1.66645s"
+-                               animation-duration: "4.21444s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "3.652387916122757%"
+-                               left: "12.8205%"
++                               top: "37.41632093022269%"
+-                               top: "5.6427%"
++                               width: 2.6617048054232217
+-                               width: "2.00411px"
++                               height: 2.6617048054232217
+-                               height: "2.00411px"
++                               animationDelay: "2.783227059943113s"
++                               animationDuration: "2.71581258736785s"
+-                               animation-delay: "2.66999s"
+-                               animation-duration: "3.55851s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "39.2119937291996%"
+-                               left: "56.8034%"
++                               top: "33.59830469306684%"
+-                               top: "62.2136%"
++                               width: 1.783120152824915
+-                               width: "2.00838px"
++                               height: 1.783120152824915
+-                               height: "2.00838px"
++                               animationDelay: "0.7789327312192448s"
++                               animationDuration: "4.578703150289306s"
+-                               animation-delay: "0.649623s"
+-                               animation-duration: "2.13234s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "31.956238618396114%"
+-                               left: "2.83402%"
++                               top: "8.458775722407397%"
+-                               top: "25.0423%"
++                               width: 1.5995256055949714
+-                               width: "2.68867px"
++                               height: 1.5995256055949714
+-                               height: "2.68867px"
++                               animationDelay: "2.303295198057565s"
++                               animationDuration: "2.956085414245496s"
+-                               animation-delay: "2.12111s"
+-                               animation-duration: "2.84138s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "73.51361781889818%"
+-                               left: "28.6802%"
++                               top: "82.94893667280306%"
+-                               top: "66.0279%"
++                               width: 2.6747489853455955
+-                               width: "1.53734px"
++                               height: 2.6747489853455955
+-                               height: "1.53734px"
++                               animationDelay: "1.9660007949439695s"
++                               animationDuration: "2.558148227399941s"
+-                               animation-delay: "2.19753s"
+-                               animation-duration: "4.97028s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "25.876835328179027%"
+-                               left: "90.9997%"
++                               top: "51.10254708588583%"
+-                               top: "15.0013%"
++                               width: 2.943803375468974
+-                               width: "1.61799px"
++                               height: 2.943803375468974
+-                               height: "1.61799px"
++                               animationDelay: "0.5755617970577482s"
++                               animationDuration: "3.291203254589326s"
+-                               animation-delay: "1.36879s"
+-                               animation-duration: "4.76985s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "67.00600997135702%"
+-                               left: "93.7159%"
++                               top: "28.58481139997464%"
+-                               top: "56.3236%"
++                               width: 1.2047224723016525
+-                               width: "1.08291px"
++                               height: 1.2047224723016525
+-                               height: "1.08291px"
++                               animationDelay: "0.31527496828528057s"
++                               animationDuration: "4.383580961170074s"
+-                               animation-delay: "0.386602s"
+-                               animation-duration: "2.23108s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "49.0250405304987%"
+-                               left: "31.442%"
++                               top: "27.15643727641872%"
+-                               top: "32.2937%"
++                               width: 1.525079071565521
+-                               width: "2.35136px"
++                               height: 1.525079071565521
+-                               height: "2.35136px"
++                               animationDelay: "1.3046472911211642s"
++                               animationDuration: "3.26757638188007s"
+-                               animation-delay: "0.726164s"
+-                               animation-duration: "4.52049s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "9.639839474310097%"
+-                               left: "24.5472%"
++                               top: "63.60454212536049%"
+-                               top: "43.039%"
++                               width: 1.8905932592114398
+-                               width: "1.56147px"
++                               height: 1.8905932592114398
+-                               height: "1.56147px"
++                               animationDelay: "1.801113961786466s"
++                               animationDuration: "2.8992604467711884s"
+-                               animation-delay: "1.38208s"
+-                               animation-duration: "2.00628s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "61.26333923466578%"
+-                               left: "65.2591%"
++                               top: "76.8752189167558%"
+-                               top: "70.9046%"
++                               width: 2.563993717645929
+-                               width: "2.31114px"
++                               height: 2.563993717645929
+-                               height: "2.31114px"
++                               animationDelay: "2.4364940262342536s"
++                               animationDuration: "4.751550710249621s"
+-                               animation-delay: "1.066s"
+-                               animation-duration: "2.79183s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "19.922233587107563%"
+-                               left: "32.3762%"
++                               top: "51.26284162235042%"
+-                               top: "56.3591%"
++                               width: 1.5359033422212567
+-                               width: "1.97593px"
++                               height: 1.5359033422212567
+-                               height: "1.97593px"
++                               animationDelay: "1.2387234155474776s"
++                               animationDuration: "4.020129816614233s"
+-                               animation-delay: "0.29933s"
+-                               animation-duration: "2.40223s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "91.57870581758786%"
+-                               left: "24.6388%"
++                               top: "82.55669114244381%"
+-                               top: "2.20928%"
++                               width: 2.088729562291838
+-                               width: "2.34935px"
++                               height: 2.088729562291838
+-                               height: "2.34935px"
++                               animationDelay: "1.1795079351425626s"
++                               animationDuration: "3.8205494116954695s"
+-                               animation-delay: "0.948851s"
+-                               animation-duration: "3.61018s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "94.27906910789534%"
+-                               left: "51.9099%"
++                               top: "20.13293637559215%"
+-                               top: "61.0225%"
++                               width: 2.584319079517174
+-                               width: "2.72565px"
++                               height: 2.584319079517174
+-                               height: "2.72565px"
++                               animationDelay: "1.3451617662216306s"
++                               animationDuration: "2.0144570281271874s"
+-                               animation-delay: "0.299918s"
+-                               animation-duration: "4.36348s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "60.74706615250961%"
+-                               left: "61.8688%"
++                               top: "56.82656155370183%"
+-                               top: "85.8122%"
++                               width: 2.41975851750927
+-                               width: "2.16419px"
++                               height: 2.41975851750927
+-                               height: "2.16419px"
++                               animationDelay: "1.9170630564832016s"
++                               animationDuration: "4.550272076837692s"
+-                               animation-delay: "1.41974s"
+-                               animation-duration: "4.8127s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "7.277584225005363%"
+-                               left: "86.9415%"
++                               top: "87.51001710756739%"
+-                               top: "92.3529%"
++                               width: 2.5799220391246864
+-                               width: "1.32234px"
++                               height: 2.5799220391246864
+-                               height: "1.32234px"
++                               animationDelay: "0.35109994070508166s"
++                               animationDuration: "2.461457341039417s"
+-                               animation-delay: "2.1449s"
+-                               animation-duration: "4.72793s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "51.66291268956257%"
+-                               left: "13.3012%"
++                               top: "11.713161477866862%"
+-                               top: "28.513%"
++                               width: 2.653852307629424
+-                               width: "1.41548px"
++                               height: 2.653852307629424
+-                               height: "1.41548px"
++                               animationDelay: "0.8824419839875s"
++                               animationDuration: "2.750708787489473s"
+-                               animation-delay: "1.6688s"
+-                               animation-duration: "3.32536s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "32.72650880905045%"
+-                               left: "10.632%"
++                               top: "3.8312989122863517%"
+-                               top: "83.0631%"
++                               width: 1.2210542618474964
+-                               width: "2.53615px"
++                               height: 1.2210542618474964
+-                               height: "2.53615px"
++                               animationDelay: "1.311126805688539s"
++                               animationDuration: "2.5336126623327635s"
+-                               animation-delay: "1.62072s"
+-                               animation-duration: "3.62533s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "61.86504073147374%"
+-                               left: "11.6206%"
++                               top: "30.897847752362008%"
+-                               top: "95.3825%"
++                               width: 1.8691591955669253
+-                               width: "2.09699px"
++                               height: 1.8691591955669253
+-                               height: "2.09699px"
++                               animationDelay: "2.7667127470867032s"
++                               animationDuration: "3.134867408374196s"
+-                               animation-delay: "2.30591s"
+-                               animation-duration: "3.54737s"
+                              }}
+                            >
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "64.42460174881013%"
+-                               left: "76.8962%"
++                               top: "74.19896030436598%"
+-                               top: "29.0475%"
++                               width: 1.7904452651755276
+-                               width: "1.01954px"
++                               height: 1.7904452651755276
+-                               height: "1.01954px"
++                               animationDelay: "2.2809508770963767s"
++                               animationDuration: "2.3534736501630182s"
+-                               animation-delay: "2.52729s"
+-                               animation-duration: "3.78291s"
+                              }}
+                            >
+                            ...
+                          ...
+                      ...
+                    ...
+              ...
+            ...
+ 

@@ -9,13 +9,14 @@ import type {
 } from "@/types";
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "GitHub", href: "#github" },
-  { label: "Certificates", href: "#certificates" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#hero", icon: "home" },
+  { label: "About", href: "#about", icon: "person" },
+  { label: "Skills", href: "#skills", icon: "code" },
+  { label: "Projects", href: "#projects", icon: "folder_open" },
+  { label: "Experience", href: "#experience", icon: "work" },
+  { label: "GitHub", href: "#github", icon: "terminal" },
+  { label: "Certificates", href: "#certificates", icon: "school" },
+  { label: "Contact", href: "#contact", icon: "mail" },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
