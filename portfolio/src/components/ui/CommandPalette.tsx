@@ -57,23 +57,23 @@ export default function CommandPalette() {
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            className="relative w-full max-w-lg bg-[#141414] border border-[#262626] rounded-2xl shadow-2xl overflow-hidden"
+            className="relative w-full max-w-lg bg-[#111111] border border-[#222222] rounded-2xl shadow-2xl overflow-hidden"
           >
-            <div className="flex items-center gap-3 px-5 py-4 border-b border-[#262626]">
-              <Search size={18} className="text-[#A3A3A3] shrink-0" />
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-[#222222]">
+              <Search size={18} className="text-[#888888] shrink-0" />
               <input
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Navigate to section..."
-                className="flex-1 bg-transparent text-[#F5F5F5] text-sm outline-none placeholder:text-[#A3A3A3]/50"
+                className="flex-1 bg-transparent text-[#FFFFFF] text-sm outline-none placeholder:text-[#888888]/50"
               />
               <button
                 onClick={() => {
                   setOpen(false);
                   setQuery("");
                 }}
-                className="text-[#A3A3A3] hover:text-[#F5F5F5] transition-colors"
+                className="text-[#888888] hover:text-[#FFFFFF] transition-colors"
               >
                 <X size={16} />
               </button>
@@ -81,7 +81,7 @@ export default function CommandPalette() {
 
             <div className="max-h-64 overflow-y-auto py-2">
               {items.length === 0 ? (
-                <div className="px-5 py-6 text-center text-[#A3A3A3] text-sm">
+                <div className="px-5 py-6 text-center text-[#888888] text-sm">
                   No results found.
                 </div>
               ) : (
@@ -89,21 +89,21 @@ export default function CommandPalette() {
                   <button
                     key={item.href}
                     onClick={() => handleSelect(item.href)}
-                    className="w-full flex items-center gap-3 px-5 py-3 text-left hover:bg-[#262626] transition-colors group"
+                    className="w-full flex items-center gap-3 px-5 py-3 text-left hover:bg-[#222222] transition-colors group"
                   >
-                    <span className="text-sm text-[#F5F5F5]">{item.label}</span>
+                    <span className="text-sm text-[#FFFFFF]">{item.label}</span>
                     <ArrowRight
                       size={14}
-                      className="text-[#A3A3A3] ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="text-[#888888] ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
                     />
                   </button>
                 ))
               )}
             </div>
 
-            <div className="px-5 py-3 border-t border-[#262626] flex items-center gap-4 text-[10px] text-[#A3A3A3]/60">
+            <div className="px-5 py-3 border-t border-[#222222] flex items-center gap-4 text-[10px] text-[#888888]/60">
               <span>
-                <kbd className="px-1.5 py-0.5 rounded bg-[#262626] text-[#A3A3A3]">
+                <kbd className="px-1.5 py-0.5 rounded bg-[#222222] text-[#888888]">
                   Esc
                 </kbd>{" "}
                 to close

@@ -23,7 +23,7 @@ export default function BackToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#141414]/80 backdrop-blur-sm border border-accent/20 flex items-center justify-center text-accent hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-[#111111]/80 backdrop-blur-sm border border-accent/20 flex items-center justify-center text-accent hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300"
           aria-label="Back to top"
         >
           <ChevronUp size={20} />

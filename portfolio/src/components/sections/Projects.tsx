@@ -40,14 +40,14 @@ function ProjectCard({
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-6xl font-bold text-white/5">{index + 1}</span>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#141414] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#111111] to-transparent" />
         </div>
 
         <div className="p-6">
-          <h3 className="text-xl font-bold text-[#F5F5F5] mb-2 group-hover:text-[#FBBF24] transition-colors">
+          <h3 className="text-xl font-bold text-[#FFFFFF] mb-2 group-hover:text-[#FFFFFF] transition-colors">
             {project.title}
           </h3>
-          <p className="text-[#A3A3A3] text-sm leading-relaxed mb-4 line-clamp-2">
+          <p className="text-[#888888] text-sm leading-relaxed mb-4 line-clamp-2">
             {project.description}
           </p>
 
@@ -55,19 +55,19 @@ function ProjectCard({
             {project.tech.slice(0, 4).map((t) => (
               <span
                 key={t}
-                className="px-2 py-1 text-xs rounded-md bg-[#FBBF24]/10 text-[#FBBF24] border border-[#FBBF24]/20"
+                className="px-2 py-1 text-xs rounded-md bg-[#FFFFFF]/10 text-[#FFFFFF] border border-[#FFFFFF]/20"
               >
                 {t}
               </span>
             ))}
             {project.tech.length > 4 && (
-              <span className="px-2 py-1 text-xs rounded-md bg-[#262626] text-[#A3A3A3]">
+              <span className="px-2 py-1 text-xs rounded-md bg-[#222222] text-[#888888]">
                 +{project.tech.length - 4}
               </span>
             )}
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-[#FBBF24]">
+          <div className="flex items-center gap-2 text-sm text-[#FFFFFF]">
             <span>View Details</span>
             <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </div>
@@ -88,32 +88,32 @@ function ProjectCard({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25 }}
-              className="bg-[#141414] border border-[#262626] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-8 relative"
+              className="bg-[#111111] border border-[#222222] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-8 relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setExpanded(false)}
-                className="absolute top-4 right-4 text-[#A3A3A3] hover:text-[#F5F5F5] transition-colors"
+                className="absolute top-4 right-4 text-[#888888] hover:text-[#FFFFFF] transition-colors"
               >
                 <X size={20} />
               </button>
 
-              <h3 className="text-2xl font-bold text-[#F5F5F5] mb-2">
+              <h3 className="text-2xl font-bold text-[#FFFFFF] mb-2">
                 {project.title}
               </h3>
-              <p className="text-[#FBBF24] text-sm mb-6">{project.tech.join(" / ")}</p>
+              <p className="text-[#FFFFFF] text-sm mb-6">{project.tech.join(" / ")}</p>
 
-              <p className="text-[#A3A3A3] leading-relaxed mb-6">
+              <p className="text-[#888888] leading-relaxed mb-6">
                 {project.longDescription}
               </p>
 
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-[#F5F5F5] mb-3">Tech Stack</h4>
+                <h4 className="text-sm font-semibold text-[#FFFFFF] mb-3">Tech Stack</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-[#FBBF24]/10 text-[#FBBF24] border border-[#FBBF24]/20"
+                      className="px-3 py-1.5 text-sm rounded-lg bg-[#FFFFFF]/10 text-[#FFFFFF] border border-[#FFFFFF]/20"
                     >
                       {t}
                     </span>
@@ -127,7 +127,7 @@ function ProjectCard({
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#F5F5F5] text-[#0A0A0A] font-medium text-sm hover:bg-white transition-colors"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFFFFF] text-[#000000] font-medium text-sm hover:bg-white transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" />
                     GitHub
@@ -138,7 +138,7 @@ function ProjectCard({
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#FBBF24]/30 text-[#FBBF24] font-medium text-sm hover:bg-[#FBBF24]/10 transition-colors"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#FFFFFF]/30 text-[#FFFFFF] font-medium text-sm hover:bg-[#FFFFFF]/10 transition-colors"
                   >
                     <ExternalLink size={16} />
                     Live Demo

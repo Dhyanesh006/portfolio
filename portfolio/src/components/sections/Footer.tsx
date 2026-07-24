@@ -12,12 +12,12 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#262626] py-12">
+    <footer className="border-t border-[#222222] py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src="/images/stark-logo.png" alt="Logo" className="h-8 w-8 rounded-full" />
-            <p className="text-[#A3A3A3] text-sm mt-1">
+            <img src="/images/radio-logo.png" alt="Logo" className="h-8 w-8 rounded-full" />
+            <p className="text-[#888888] text-sm mt-1">
               Building the future, one line of code at a time.
             </p>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-[#141414]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FBBF24] hover:border-[#FBBF24]/30 transition-all"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-[#111111]/60 border border-white/5 text-[#888888] hover:text-[#FFFFFF] hover:border-[#FFFFFF]/30 transition-all"
                   aria-label={link.name}
                 >
                   {Icon && <Icon size={16} />}
@@ -41,12 +41,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-[#262626] flex flex-col md:flex-row items-center justify-between gap-4 text-[#A3A3A3] text-xs">
+        <div className="mt-8 pt-8 border-t border-[#222222] flex flex-col md:flex-row items-center justify-between gap-4 text-[#888888] text-xs">
           <p>
             &copy; {new Date().getFullYear()} Dhyanesh V. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Crafted with <Heart size={12} className="text-[#FBBF24] fill-[#FBBF24]" /> using Next.js
+            Crafted with <Heart size={12} className="text-[#FFFFFF] fill-[#FFFFFF]" /> using Next.js
           </p>
         </div>
       </div>

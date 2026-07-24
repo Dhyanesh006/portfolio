@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0A0A0A;
-  --color-card: #141414;
-  --color-accent: #FBBF24;
-  --color-secondary: #F59E0B;
-  --color-text: #F5F5F5;
-  --color-muted: #A3A3A3;
-  --color-border: #262626;
-  --color-card-hover: #1F1F1F;
+  --color-background: #000000;
+  --color-card: #111111;
+  --color-accent: #FFFFFF;
+  --color-secondary: #CCCCCC;
+  --color-text: #FFFFFF;
+  --color-muted: #888888;
+  --color-border: #222222;
+  --color-card-hover: #1A1A1A;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #262626 #0A0A0A;
+  scrollbar-color: #222222 #000000;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #222222;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FBBF24;
+  background: #FFFFFF;
 }
 
 html {
@@ -37,14 +37,14 @@ html {
 }
 
 body {
-  background: #0A0A0A;
-  color: #F5F5F5;
+  background: #000000;
+  color: #FFFFFF;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(251, 191, 36, 0.3);
-  color: #F5F5F5;
+  background: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
 }
 
 @keyframes float {
@@ -64,8 +64,8 @@ body {
 }
 
 @keyframes border-glow {
-  0%, 100% { border-color: rgba(251, 191, 36, 0.3); }
-  50% { border-color: rgba(245, 158, 11, 0.6); }
+  0%, 100% { border-color: rgba(255, 255, 255, 0.3); }
+  50% { border-color: rgba(255, 255, 255, 0.6); }
 }
 
 @keyframes slide-up {
@@ -96,25 +96,25 @@ body {
 }
 
 .glass-card {
-  background: rgba(20, 20, 20, 0.6);
+  background: rgba(17, 17, 17, 0.6);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card:hover {
-  background: rgba(31, 31, 31, 0.7);
-  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(26, 26, 26, 0.7);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  background: linear-gradient(135deg, #FFFFFF, #CCCCCC);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient-radial {
-  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
 }
 
 .hover-glow {
@@ -129,7 +129,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(251, 191, 36, 0.1),
+    rgba(255, 255, 255, 0.06),
     transparent 40%
   );
   opacity: 0;
@@ -160,7 +160,7 @@ body {
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, #FBBF24, #F59E0B);
+  background: linear-gradient(90deg, #FFFFFF, #CCCCCC);
   border-radius: 999px;
   height: 6px;
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -172,7 +172,7 @@ body {
 
 .skill-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.15);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
 }
 
 .project-card {
@@ -184,13 +184,13 @@ body {
 }
 
 .timeline-line {
-  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #CCCCCC 100%);
 }
 
 .typing-cursor {
   display: inline-block;
   width: 3px;
-  background: #FBBF24;
+  background: #FFFFFF;
   animation: blink 1s step-end infinite;
 }
 
@@ -203,7 +203,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #F5F5F5;
+  background: #FFFFFF;
   border-radius: 50%;
   animation: twinkle 3s ease-in-out infinite;
 }
