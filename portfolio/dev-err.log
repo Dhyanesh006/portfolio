@@ -7620,3 +7620,207 @@ Import traces:
 ⚠ Fast Refresh had to perform a full reload due to a runtime error.
 ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
 ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+⨯ ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  [90m50 |[0m                     <p className=[32m"text-[#FFFFFF] text-sm mb-1"[0m>{cert.issuer}</p>
+  [90m51 |[0m                     <p className=[32m"text-[#A3A3A3] text-xs mt-auto"[0m>{cert.date}</p>
+[31m[1m>[0m [90m52 |[0m                   </motion.div>
+  [90m   |[0m                                [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m53 |[0m                 </div>
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m               ))}
+  [90m55 |[0m             </div>
+  [90m56 |[0m           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+⨯ ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  [90m50 |[0m                     <p className=[32m"text-[#FFFFFF] text-sm mb-1"[0m>{cert.issuer}</p>
+  [90m51 |[0m                     <p className=[32m"text-[#A3A3A3] text-xs mt-auto"[0m>{cert.date}</p>
+[31m[1m>[0m [90m52 |[0m                   </motion.div>
+  [90m   |[0m                                [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m53 |[0m                 </div>
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m               ))}
+  [90m55 |[0m             </div>
+  [90m56 |[0m           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+⨯ ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  [90m50 |[0m                     <p className=[32m"text-[#FFFFFF] text-sm mb-1"[0m>{cert.issuer}</p>
+  [90m51 |[0m                     <p className=[32m"text-[#A3A3A3] text-xs mt-auto"[0m>{cert.date}</p>
+[31m[1m>[0m [90m52 |[0m                   </motion.div>
+  [90m   |[0m                                [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m53 |[0m                 </div>
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m               ))}
+  [90m55 |[0m             </div>
+  [90m56 |[0m           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+⨯ ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  [90m50 |[0m                     <p className=[32m"text-[#FFFFFF] text-sm mb-1"[0m>{cert.issuer}</p>
+  [90m51 |[0m                     <p className=[32m"text-[#A3A3A3] text-xs mt-auto"[0m>{cert.date}</p>
+[31m[1m>[0m [90m52 |[0m                   </motion.div>
+  [90m   |[0m                                [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m53 |[0m                 </div>
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^[0m
+  [90m54 |[0m               ))}
+  [90m55 |[0m             </div>
+  [90m56 |[0m           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+[browser] Uncaught Error: ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  50 |                     <p className="text-[#FFFFFF] text-sm mb-1">{cert.issuer}</p>
+  51 |                     <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
+> 52 |                   </motion.div>
+     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |                 </div>
+     | ^^^^^^^^^^^^^^^^
+  54 |               ))}
+  55 |             </div>
+  56 |           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/sections/Certificates.tsx:52:32)
+    at <unknown> (Error: (./src/components/sections/Certificates.tsx:52:32)
+[browser] ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  50 |                     <p className="text-[#FFFFFF] text-sm mb-1">{cert.issuer}</p>
+  51 |                     <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
+> 52 |                   </motion.div>
+     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |                 </div>
+     | ^^^^^^^^^^^^^^^^
+  54 |               ))}
+  55 |             </div>
+  56 |           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  50 |                     <p className="text-[#FFFFFF] text-sm mb-1">{cert.issuer}</p>
+  51 |                     <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
+> 52 |                   </motion.div>
+     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |                 </div>
+     | ^^^^^^^^^^^^^^^^
+  54 |               ))}
+  55 |             </div>
+  56 |           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] 
+[browser] ./src/components/sections/Certificates.tsx:52:32
+Expected '</', got 'jsx text'
+  50 |                     <p className="text-[#FFFFFF] text-sm mb-1">{cert.issuer}</p>
+  51 |                     <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
+> 52 |                   </motion.div>
+     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |                 </div>
+     | ^^^^^^^^^^^^^^^^
+  54 |               ))}
+  55 |             </div>
+  56 |           </div>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/components/sections/Certificates.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/sections/Certificates.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] 

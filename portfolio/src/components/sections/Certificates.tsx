@@ -27,13 +27,16 @@ export default function Certificates() {
                   key={cert.id}
                   className="flex-none w-full sm:w-1/2 md:w-1/3 pl-4"
                 >
-                  <motion.div
+                  <motion.a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                     whileHover={{ y: -6 }}
-                    className="glass-card rounded-xl p-6 h-full flex flex-col group"
+                    className="glass-card rounded-xl p-6 h-full flex flex-col group block"
                   >
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FFFFFF]/20 to-[#CCCCCC]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Award
@@ -46,7 +49,7 @@ export default function Certificates() {
                     </h3>
                     <p className="text-[#FFFFFF] text-sm mb-1">{cert.issuer}</p>
                     <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
-                  </motion.div>
+                  </motion.a>
                 </div>
               ))}
             </div>
