@@ -7103,3 +7103,169 @@ https://react.dev/link/hydration-mismatch
             ...
  
 ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <AnimatePresence>
+                    <CustomCursor>
+                    <ScrollProgress>
+                    <Navbar>
+                    <CommandPalette>
+                    <main>
+                      <Hero>
+                        <section id="hero" className="relative m...">
+                          <div className="absolute i...">
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "99.99971674252181%"
+-                               left: "99.9997%"
++                               top: "0.00026427810606364523%"
+-                               top: "0.000264278%"
++                               width: 2.99999243477082
+-                               width: "2.99999px"
++                               height: 2.99999243477082
+-                               height: "2.99999px"
++                               animationDelay: "0.000007522424482177526s"
++                               animationDuration: "2.0000116342184313s"
+-                               animation-delay: "7.52242e-06s"
+-                               animation-duration: "2.00001s"
+                              }}
+                            >
+                            ...
+                            ...
+                          ...
+                      ...
+                    ...
+              ...
+            ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={{...}} forbidden={undefined} unauthorized={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="page.tsx">
+                <SegmentTrieNode>
+                <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+                  <Home params={Promise} searchParams={Promise}>
+                    <AnimatePresence>
+                    <CustomCursor>
+                    <ScrollProgress>
+                    <Navbar>
+                    <CommandPalette>
+                    <main>
+                      <Hero>
+                        <section id="hero" className="relative m...">
+                          <div className="absolute i...">
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div
+                              className="star-particle"
+                              style={{
++                               left: "99.99971674252181%"
+-                               left: "99.9997%"
++                               top: "0.00026427810606364523%"
+-                               top: "0.000264278%"
++                               width: 2.99999243477082
+-                               width: "2.99999px"
++                               height: 2.99999243477082
+-                               height: "2.99999px"
++                               animationDelay: "0.000007522424482177526s"
++                               animationDuration: "2.0000116342184313s"
+-                               animation-delay: "7.52242e-06s"
+-                               animation-duration: "2.00001s"
+                              }}
+                            >
+                            ...
+                            ...
+                          ...
+                      ...
+                    ...
+              ...
+            ...
+ 

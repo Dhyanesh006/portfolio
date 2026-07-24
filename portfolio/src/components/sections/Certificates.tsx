@@ -35,17 +35,17 @@ export default function Certificates() {
                     whileHover={{ y: -6 }}
                     className="glass-card rounded-xl p-6 h-full flex flex-col group"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3B82F6]/20 to-[#06B6D4]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FBBF24]/20 to-[#F59E0B]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <Award
                         size={24}
-                        className="text-[#3B82F6]"
+                        className="text-[#FBBF24]"
                       />
                     </div>
-                    <h3 className="text-[#F8FAFC] font-semibold text-base mb-1">
+                    <h3 className="text-[#F5F5F5] font-semibold text-base mb-1">
                       {cert.title}
                     </h3>
-                    <p className="text-[#3B82F6] text-sm mb-1">{cert.issuer}</p>
-                    <p className="text-[#94A3B8] text-xs mt-auto">{cert.date}</p>
+                    <p className="text-[#FBBF24] text-sm mb-1">{cert.issuer}</p>
+                    <p className="text-[#A3A3A3] text-xs mt-auto">{cert.date}</p>
                   </motion.div>
                 </div>
               ))}
@@ -55,14 +55,14 @@ export default function Certificates() {
           <div className="flex justify-center gap-3 mt-8">
             <button
               onClick={() => emblaApi?.scrollPrev()}
-              className="w-10 h-10 rounded-full border border-[#3B82F6]/20 flex items-center justify-center text-[#94A3B8] hover:text-[#3B82F6] hover:border-[#3B82F6]/50 transition-all"
+              className="w-10 h-10 rounded-full border border-[#FBBF24]/20 flex items-center justify-center text-[#A3A3A3] hover:text-[#FBBF24] hover:border-[#FBBF24]/50 transition-all"
               aria-label="Previous certificate"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => emblaApi?.scrollNext()}
-              className="w-10 h-10 rounded-full border border-[#3B82F6]/20 flex items-center justify-center text-[#94A3B8] hover:text-[#3B82F6] hover:border-[#3B82F6]/50 transition-all"
+              className="w-10 h-10 rounded-full border border-[#FBBF24]/20 flex items-center justify-center text-[#A3A3A3] hover:text-[#FBBF24] hover:border-[#FBBF24]/50 transition-all"
               aria-label="Next certificate"
             >
               <ChevronRight size={18} />

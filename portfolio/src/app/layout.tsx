@@ -50,7 +50,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#050816] text-[#F8FAFC]">
+      <body className="min-h-screen bg-[#0A0A0A] text-[#F5F5F5]">
         {children}
       </body>
     </html>

@@ -21,8 +21,8 @@ export default function SectionHeading({ title, subtitle }: SectionHeadingProps)
           {subtitle}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-[#F8FAFC]">{title}</h2>
-      <div className="w-20 h-1 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] mx-auto mt-4 rounded-full" />
+      <h2 className="text-3xl md:text-4xl font-bold text-[#F5F5F5]">{title}</h2>
+      <div className="w-20 h-1 bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] mx-auto mt-4 rounded-full" />
     </motion.div>
   );
 }

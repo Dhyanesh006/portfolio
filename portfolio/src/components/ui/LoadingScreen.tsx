@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function LoadingScreen() {
   return (
-    <div className="fixed inset-0 z-[200] bg-[#050816] flex items-center justify-center">
+    <div className="fixed inset-0 z-[200] bg-[#0A0A0A] flex items-center justify-center">
       <div className="text-center">
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
@@ -19,7 +19,7 @@ export default function LoadingScreen() {
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="w-2 h-2 rounded-full bg-[#3B82F6]"
+              className="w-2 h-2 rounded-full bg-[#FBBF24]"
               animate={{ y: [0, -10, 0] }}
               transition={{
                 duration: 0.6,

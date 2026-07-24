@@ -57,7 +57,7 @@ export default function Hero() {
 
         <motion.div
           className="absolute w-96 h-96 rounded-full blur-3xl opacity-20"
-          style={{ background: "#3B82F6", top: "10%", left: "10%" }}
+          style={{ background: "#FBBF24", top: "10%", left: "10%" }}
           animate={{
             x: [0, 100, -50, 0],
             y: [0, -80, 60, 0],
@@ -66,7 +66,7 @@ export default function Hero() {
         />
         <motion.div
           className="absolute w-80 h-80 rounded-full blur-3xl opacity-15"
-          style={{ background: "#06B6D4", top: "50%", right: "10%" }}
+          style={{ background: "#F59E0B", top: "50%", right: "10%" }}
           animate={{
             x: [0, -80, 50, 0],
             y: [0, 60, -40, 0],
@@ -91,7 +91,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="h-12 flex items-center justify-center mb-8"
         >
-          <span className="text-xl md:text-2xl text-[#94A3B8]">
+          <span className="text-xl md:text-2xl text-[#A3A3A3]">
             {typedText}
           </span>
           <span className="typing-cursor ml-1" />
@@ -111,7 +111,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#3B82F6] hover:bg-[#3B82F6]/10 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-[#A3A3A3] hover:text-[#FBBF24] hover:bg-[#FBBF24]/10 transition-colors"
             >
               {s.icon ? <s.icon className="w-4 h-4" /> : <span className="material-symbols-rounded text-[18px]">mail</span>}
               {s.name}
@@ -132,7 +132,7 @@ export default function Hero() {
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm border border-[#3B82F6]/30 text-[#3B82F6] hover:bg-[#3B82F6]/10 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm border border-[#FBBF24]/30 text-[#FBBF24] hover:bg-[#FBBF24]/10 transition-colors"
           >
             <ArrowDown size={18} />
             Scroll Down
@@ -149,14 +149,14 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-[#94A3B8]"
+          className="flex flex-col items-center gap-2 text-[#A3A3A3]"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-5 h-8 rounded-full border-2 border-[#94A3B8]/30 flex items-start justify-center p-1">
+          <div className="w-5 h-8 rounded-full border-2 border-[#A3A3A3]/30 flex items-start justify-center p-1">
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-1.5 rounded-full bg-[#3B82F6]"
+              className="w-1 h-1.5 rounded-full bg-[#FBBF24]"
             />
           </div>
         </motion.div>

@@ -48,12 +48,12 @@ export default function GitHubSection() {
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 size={32} className="text-[#3B82F6] animate-spin" />
+            <Loader2 size={32} className="text-[#FBBF24] animate-spin" />
           </div>
         ) : error || !profile ? (
           <div className="text-center py-20">
-            <GithubIcon className="w-12 h-12 text-[#94A3B8] mx-auto mb-4" />
-            <p className="text-[#94A3B8]">
+            <GithubIcon className="w-12 h-12 text-[#A3A3A3] mx-auto mb-4" />
+            <p className="text-[#A3A3A3]">
               Unable to load GitHub data. Check your network or try again later.
             </p>
           </div>
@@ -69,42 +69,42 @@ export default function GitHubSection() {
                 <img
                   src={profile.avatar_url}
                   alt={profile.name || profile.login}
-                  className="w-20 h-20 rounded-full border-2 border-[#3B82F6]/30"
+                  className="w-20 h-20 rounded-full border-2 border-[#FBBF24]/30"
                   loading="lazy"
                 />
                 <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-[#F8FAFC]">
+                  <h3 className="text-xl font-bold text-[#F5F5F5]">
                     {profile.name || profile.login}
                   </h3>
                   {profile.bio && (
-                    <p className="text-[#94A3B8] text-sm mt-1">{profile.bio}</p>
+                    <p className="text-[#A3A3A3] text-sm mt-1">{profile.bio}</p>
                   )}
                 </div>
                 <div className="flex gap-8 md:ml-auto">
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#94A3B8] text-xs mb-1">
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
                       <GithubIcon className="w-3.5 h-3.5" />
                       <span>Repos</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#F8FAFC]">
+                    <p className="text-2xl font-bold text-[#F5F5F5]">
                       {profile.public_repos}
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#94A3B8] text-xs mb-1">
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
                       <Users size={14} />
                       <span>Followers</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#F8FAFC]">
+                    <p className="text-2xl font-bold text-[#F5F5F5]">
                       {profile.followers}
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#94A3B8] text-xs mb-1">
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
                       <Users size={14} />
                       <span>Following</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#F8FAFC]">
+                    <p className="text-2xl font-bold text-[#F5F5F5]">
                       {profile.following}
                     </p>
                   </div>
@@ -112,7 +112,7 @@ export default function GitHubSection() {
               </div>
             </motion.div>
 
-            <h3 className="text-lg font-semibold text-[#F8FAFC] mb-4">
+            <h3 className="text-lg font-semibold text-[#F5F5F5] mb-4">
               Recent Repositories
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -130,20 +130,20 @@ export default function GitHubSection() {
                   className="glass-card rounded-xl p-5 group block"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-[#3B82F6] font-semibold text-sm group-hover:underline truncate">
+                    <h4 className="text-[#FBBF24] font-semibold text-sm group-hover:underline truncate">
                       {repo.name}
                     </h4>
                     <ExternalLink
                       size={14}
-                      className="text-[#94A3B8] shrink-0 ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="text-[#A3A3A3] shrink-0 ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
                     />
                   </div>
 
-                  <p className="text-[#94A3B8] text-xs leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]">
+                  <p className="text-[#A3A3A3] text-xs leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]">
                     {repo.description || "No description provided."}
                   </p>
 
-                  <div className="flex items-center gap-4 text-xs text-[#94A3B8]">
+                  <div className="flex items-center gap-4 text-xs text-[#A3A3A3]">
                     {repo.language && (
                       <span className="flex items-center gap-1">
                         <span
@@ -162,7 +162,7 @@ export default function GitHubSection() {
                                 ? "#e34c26"
                                 : repo.language === "CSS"
                                 ? "#563d7c"
-                                : "#94A3B8",
+                                : "#A3A3A3",
                           }}
                         />
                         {repo.language}

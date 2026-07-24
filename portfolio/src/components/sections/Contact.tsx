@@ -47,24 +47,24 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-[#F8FAFC] mb-4">
+            <h3 className="text-2xl font-bold text-[#F5F5F5] mb-4">
               Let&apos;s work together
             </h3>
-            <p className="text-[#94A3B8] leading-relaxed mb-8">
+            <p className="text-[#A3A3A3] leading-relaxed mb-8">
               I&apos;m always open to discussing new projects, creative ideas, or
               opportunities to be part of your vision. Feel free to reach out!
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3 text-[#94A3B8]">
-                <div className="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center">
-                  <Mail size={18} className="text-[#3B82F6]" />
+              <div className="flex items-center gap-3 text-[#A3A3A3]">
+                <div className="w-10 h-10 rounded-lg bg-[#FBBF24]/10 flex items-center justify-center">
+                  <Mail size={18} className="text-[#FBBF24]" />
                 </div>
                 <span className="text-sm">dhyanesh@example.com</span>
               </div>
-              <div className="flex items-center gap-3 text-[#94A3B8]">
-                <div className="w-10 h-10 rounded-lg bg-[#3B82F6]/10 flex items-center justify-center">
-                  <MapPin size={18} className="text-[#3B82F6]" />
+              <div className="flex items-center gap-3 text-[#A3A3A3]">
+                <div className="w-10 h-10 rounded-lg bg-[#FBBF24]/10 flex items-center justify-center">
+                  <MapPin size={18} className="text-[#FBBF24]" />
                 </div>
                 <span className="text-sm">India</span>
               </div>
@@ -81,7 +81,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-11 h-11 rounded-full flex items-center justify-center bg-[#111827]/60 border border-white/5 text-[#94A3B8] hover:text-[#3B82F6] hover:border-[#3B82F6]/30 transition-colors"
+                    className="w-11 h-11 rounded-full flex items-center justify-center bg-[#141414]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FBBF24] hover:border-[#FBBF24]/30 transition-colors"
                   >
                     {Icon && <Icon size={18} />}
                   </motion.a>
@@ -100,7 +100,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-[#F8FAFC] mb-2"
+                  className="block text-sm font-medium text-[#F5F5F5] mb-2"
                 >
                   Name
                 </label>
@@ -112,14 +112,14 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#050816] border border-[#1E293B] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#3B82F6]/50 focus:ring-1 focus:ring-[#3B82F6]/20 transition-all placeholder:text-[#94A3B8]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-[#262626] text-[#F5F5F5] text-sm focus:outline-none focus:border-[#FBBF24]/50 focus:ring-1 focus:ring-[#FBBF24]/20 transition-all placeholder:text-[#A3A3A3]/50"
                   placeholder="Your name"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-[#F8FAFC] mb-2"
+                  className="block text-sm font-medium text-[#F5F5F5] mb-2"
                 >
                   Email
                 </label>
@@ -131,14 +131,14 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#050816] border border-[#1E293B] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#3B82F6]/50 focus:ring-1 focus:ring-[#3B82F6]/20 transition-all placeholder:text-[#94A3B8]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-[#262626] text-[#F5F5F5] text-sm focus:outline-none focus:border-[#FBBF24]/50 focus:ring-1 focus:ring-[#FBBF24]/20 transition-all placeholder:text-[#A3A3A3]/50"
                   placeholder="your@email.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-[#F8FAFC] mb-2"
+                  className="block text-sm font-medium text-[#F5F5F5] mb-2"
                 >
                   Message
                 </label>
@@ -150,7 +150,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#050816] border border-[#1E293B] text-[#F8FAFC] text-sm focus:outline-none focus:border-[#3B82F6]/50 focus:ring-1 focus:ring-[#3B82F6]/20 transition-all resize-none placeholder:text-[#94A3B8]/50"
+                  className="w-full px-4 py-3 rounded-xl bg-[#0A0A0A] border border-[#262626] text-[#F5F5F5] text-sm focus:outline-none focus:border-[#FBBF24]/50 focus:ring-1 focus:ring-[#FBBF24]/20 transition-all resize-none placeholder:text-[#A3A3A3]/50"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -164,7 +164,7 @@ export default function Contact() {
                 style={{
                   background: sent
                     ? "#059669"
-                    : "linear-gradient(135deg, #3B82F6, #06B6D4)",
+                    : "linear-gradient(135deg, #FBBF24, #F59E0B)",
                 }}
               >
                 {sent ? (
