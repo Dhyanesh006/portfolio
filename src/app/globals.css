@@ -398,4 +398,28 @@ body {
   .section-container {
     padding: 0 1rem;
   }
+  
+  .glass-card {
+    backdrop-filter: blur(8px);
+  }
+  
+  .liquid-glass,
+  .liquid-glass-scrolled {
+    backdrop-filter: blur(12px) saturate(1.5);
+    -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-particle {
+    animation: none;
+    opacity: 0.3;
+  }
+  
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-gradient,
+  .animate-border-glow {
+    animation: none;
+  }
 }

@@ -43,7 +43,7 @@ export default function CommandPalette() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[150] flex items-start justify-center pt-[20vh] px-4"
+          className="fixed inset-0 z-[150] flex items-start justify-center pt-[15vh] sm:pt-[20vh] px-4"
         >
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -73,7 +73,7 @@ export default function CommandPalette() {
                   setOpen(false);
                   setQuery("");
                 }}
-                className="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors"
+                className="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors w-8 h-8 flex items-center justify-center"
               >
                 <X size={16} />
               </button>
@@ -89,7 +89,7 @@ export default function CommandPalette() {
                   <button
                     key={item.href}
                     onClick={() => handleSelect(item.href)}
-                    className="w-full flex items-center gap-3 px-5 py-3 text-left hover:bg-[#1A1A1A] transition-colors group"
+                    className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-[#1A1A1A] transition-colors group min-h-[44px]"
                   >
                     <span className="text-sm text-[#FFFFFF]">{item.label}</span>
                     <ArrowRight

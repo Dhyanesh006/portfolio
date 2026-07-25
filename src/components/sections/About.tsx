@@ -17,17 +17,17 @@ const SKILL_ICONS = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading title="About Me" subtitle="Who I Am" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card rounded-2xl p-8"
+            className="glass-card rounded-2xl p-6 sm:p-8"
           >
             <p className="text-[#A3A3A3] text-base leading-relaxed mb-6">
               I&apos;m a passionate Computer Science & Engineering student with a deep
@@ -80,15 +80,15 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="glass-card rounded-2xl p-6"
+              className="glass-card rounded-2xl p-4 sm:p-6"
             >
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 sm:gap-2">
                 {SKILL_ICONS.map((skill) => (
                   <img
                     key={skill}
                     src={`https://skillicons.dev/icons?i=${skill}&theme=dark`}
                     alt={skill}
-                    className="w-10 h-10"
+                    className="w-8 h-8 sm:w-10 sm:h-10"
                     loading="lazy"
                   />
                 ))}

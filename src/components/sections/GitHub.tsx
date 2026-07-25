@@ -42,18 +42,18 @@ export default function GitHubSection() {
   }, []);
 
   return (
-    <section id="github" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="github" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading title="GitHub" subtitle="Open Source" />
 
         {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 size={32} className="text-[#FFFFFF] animate-spin" />
+          <div className="flex items-center justify-center py-16 sm:py-20">
+            <Loader2 size={28} className="text-[#FFFFFF] animate-spin sm:w-8 sm:h-8" />
           </div>
         ) : error || !profile ? (
-          <div className="text-center py-20">
-            <GithubIcon className="w-12 h-12 text-[#A3A3A3] mx-auto mb-4" />
-            <p className="text-[#A3A3A3]">
+          <div className="text-center py-16 sm:py-20">
+            <GithubIcon className="w-10 h-10 sm:w-12 sm:h-12 text-[#A3A3A3] mx-auto mb-4" />
+            <p className="text-[#A3A3A3] text-sm">
               Unable to load GitHub data. Check your network or try again later.
             </p>
           </div>
@@ -63,48 +63,48 @@ export default function GitHubSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl p-8 mb-8"
+              className="glass-card rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8"
             >
-              <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
                 <img
                   src={profile.avatar_url}
                   alt={profile.name || profile.login}
-                  className="w-20 h-20 rounded-full border-2 border-[#FFFFFF]/30"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#FFFFFF]/30"
                   loading="lazy"
                 />
                 <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-[#FFFFFF]">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#FFFFFF]">
                     {profile.name || profile.login}
                   </h3>
                   {profile.bio && (
-                    <p className="text-[#A3A3A3] text-sm mt-1">{profile.bio}</p>
+                    <p className="text-[#A3A3A3] text-xs sm:text-sm mt-1">{profile.bio}</p>
                   )}
                 </div>
-                <div className="flex gap-8 md:ml-auto">
+                <div className="flex gap-6 sm:gap-8 md:ml-auto">
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
-                      <GithubIcon className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
+                      <GithubIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       <span>Repos</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FFFFFF]">
+                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
                       {profile.public_repos}
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
-                      <Users size={14} />
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
+                      <Users size={12} className="sm:w-3.5 sm:h-3.5" />
                       <span>Followers</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FFFFFF]">
+                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
                       {profile.followers}
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-xs mb-1">
-                      <Users size={14} />
+                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
+                      <Users size={12} className="sm:w-3.5 sm:h-3.5" />
                       <span>Following</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#FFFFFF]">
+                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
                       {profile.following}
                     </p>
                   </div>
@@ -112,10 +112,10 @@ export default function GitHubSection() {
               </div>
             </motion.div>
 
-            <h3 className="text-lg font-semibold text-[#FFFFFF] mb-4">
+            <h3 className="text-base sm:text-lg font-semibold text-[#FFFFFF] mb-3 sm:mb-4">
               Recent Repositories
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {repos.map((repo, i) => (
                 <motion.a
                   key={repo.id}
@@ -127,7 +127,7 @@ export default function GitHubSection() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -4 }}
-                  className="glass-card rounded-xl p-5 group block"
+                  className="glass-card rounded-xl p-4 sm:p-5 group block"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h4 className="text-[#FFFFFF] font-semibold text-sm group-hover:underline truncate">

@@ -77,11 +77,11 @@ export default function Navbar() {
               ))}
             </div>
 
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-[#A3A3A3] hover:text-[#FFFFFF] p-2"
-              aria-label="Toggle menu"
-            >
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden text-[#A3A3A3] hover:text-[#FFFFFF] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                aria-label="Toggle menu"
+              >
               {isOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
@@ -94,13 +94,13 @@ export default function Navbar() {
                 exit={{ opacity: 0, height: 0 }}
                 className="md:hidden overflow-hidden liquid-glass-scrolled rounded-2xl mt-1"
               >
-                <div className="px-4 pb-3 flex flex-col gap-0.5">
+                <div className="px-3 pb-3 flex flex-col gap-0.5">
                   {NAV_ITEMS.map((item) => (
                     <button
                       key={item.href}
                       onClick={() => handleClick(item.href)}
                       className={cn(
-                        "text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
+                        "text-left px-3 py-3 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 min-h-[44px]",
                         activeSection === item.href.replace("#", "")
                           ? "text-[#FFFFFF] bg-[#FFFFFF]/10"
                           : "text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-white/5"

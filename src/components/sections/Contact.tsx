@@ -36,11 +36,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading title="Get In Touch" subtitle="Contact" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,7 +81,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-11 h-11 rounded-full flex items-center justify-center bg-[#0A0A0A]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] hover:border-[#FFFFFF]/30 transition-colors"
+                    className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center bg-[#0A0A0A]/60 border border-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] hover:border-[#FFFFFF]/30 transition-colors"
                   >
                     {Icon && <Icon size={18} />}
                   </motion.a>
@@ -96,7 +96,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 space-y-5">
+            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-5 sm:p-8 space-y-4 sm:space-y-5">
               <div>
                 <label
                   htmlFor="name"
@@ -112,7 +112,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50"
+                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50 min-h-[44px]"
                   placeholder="Your name"
                 />
               </div>
@@ -131,7 +131,7 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50"
+                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50 min-h-[44px]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -145,12 +145,12 @@ export default function Contact() {
                 <textarea
                   id="message"
                   required
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all resize-none placeholder:text-[#A3A3A3]/50"
+                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all resize-none placeholder:text-[#A3A3A3]/50 min-h-[100px]"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -160,7 +160,7 @@ export default function Contact() {
                 disabled={sending || sent}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3 rounded-xl font-semibold text-sm text-black flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="w-full py-3.5 sm:py-3 rounded-xl font-semibold text-sm text-black flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all min-h-[44px]"
                 style={{
                   background: sent
                     ? "#059669"

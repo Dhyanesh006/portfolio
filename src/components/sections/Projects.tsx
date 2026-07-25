@@ -51,7 +51,7 @@ function ProjectCard({
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
         </div>
 
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <h3 className="text-xl font-bold text-[#FFFFFF] mb-2 group-hover:text-[#FFFFFF] transition-colors">
             {project.title}
           </h3>
@@ -96,12 +96,12 @@ function ProjectCard({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25 }}
-              className="bg-[#0A0A0A] border border-[#1A1A1A] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-8 relative"
+              className="bg-[#0A0A0A] border border-[#1A1A1A] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-5 sm:p-8 relative mx-2 sm:mx-0"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setExpanded(false)}
-                className="absolute top-4 right-4 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors w-10 h-10 flex items-center justify-center"
               >
                 <X size={20} />
               </button>
@@ -136,13 +136,13 @@ function ProjectCard({
                 </div>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFFFFF] text-[#000000] font-medium text-sm hover:bg-white transition-colors"
+                    className="flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-lg bg-[#FFFFFF] text-[#000000] font-medium text-sm hover:bg-white transition-colors min-h-[44px]"
                   >
                     <GithubIcon className="w-4 h-4" />
                     GitHub
@@ -153,7 +153,7 @@ function ProjectCard({
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#FFFFFF]/30 text-[#FFFFFF] font-medium text-sm hover:bg-[#FFFFFF]/10 transition-colors"
+                    className="flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-lg border border-[#FFFFFF]/30 text-[#FFFFFF] font-medium text-sm hover:bg-[#FFFFFF]/10 transition-colors min-h-[44px]"
                   >
                     <ExternalLink size={16} />
                     Live Demo
@@ -170,11 +170,11 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading title="Featured Projects" subtitle="My Work" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

@@ -27,7 +27,9 @@ interface Particle {
 }
 
 function generateParticles(): Particle[] {
-  return Array.from({ length: 50 }, (_, i) => ({
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const count = isMobile ? 20 : 50;
+  return Array.from({ length: count }, (_, i) => ({
     id: i,
     x: seededRandom(i * 7 + 1) * 100,
     y: seededRandom(i * 13 + 3) * 100,
@@ -106,17 +108,13 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: Math.max(centerImgOpacity, 0), scale: centerImgScale }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="object-contain mx-auto mb-6 mt-8"
-          style={{
-            width: "16rem",
-            height: "16rem",
-          }}
+          className="object-contain mx-auto mb-6 mt-8 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64"
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold text-gradient mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-gradient mb-4 sm:mb-6"
         >
           Dhyanesh V
         </motion.h1>
@@ -125,9 +123,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="h-12 flex items-center justify-center mb-8"
+          className="h-10 sm:h-12 flex items-center justify-center mb-6 sm:mb-8"
         >
-          <span className="text-xl md:text-2xl text-[#A3A3A3]">
+          <span className="text-base sm:text-xl md:text-2xl text-[#A3A3A3]">
             {typedText}
           </span>
           <span className="typing-cursor ml-1" />
@@ -137,7 +135,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-10 flex-wrap"
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 flex-wrap"
         >
           {SOCIALS.map((s) => (
             <motion.a
@@ -147,7 +145,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-[#FFFFFF]/10 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2.5 sm:py-2 rounded-lg text-sm font-medium text-[#A3A3A3] hover:text-[#FFFFFF] hover:bg-[#FFFFFF]/10 transition-colors min-h-[44px]"
             >
               {s.icon ? <s.icon className="w-4 h-4" /> : <span className="material-symbols-rounded text-[18px]">mail</span>}
               {s.name}
@@ -160,7 +158,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

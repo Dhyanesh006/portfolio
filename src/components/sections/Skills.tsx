@@ -61,14 +61,14 @@ export default function Skills() {
       : SKILLS.filter((s) => s.category === activeCategory);
 
   return (
-    <section id="skills" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="skills" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading title="Skills & Technologies" subtitle="My Tech Stack" />
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-12">
           <button
             onClick={() => setActiveCategory("all")}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] ${
               activeCategory === "all"
                 ? "bg-[#000000] text-[#FFFFFF] border border-white/20"
                 : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FFFFFF]"
@@ -80,7 +80,7 @@ export default function Skills() {
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] ${
                 activeCategory === cat.key
                   ? "bg-[#000000] text-[#FFFFFF] border border-white/20"
                   : "bg-[#0A0A0A] text-[#A3A3A3] hover:text-[#FFFFFF]"
@@ -93,7 +93,7 @@ export default function Skills() {
 
         <motion.div
           layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4"
         >
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill) => {
@@ -107,12 +107,12 @@ export default function Skills() {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3 }}
                   whileHover={{ y: -4 }}
-                  className="skill-card glass-card rounded-xl p-5 text-center cursor-default"
+                  className="skill-card glass-card rounded-xl p-3 sm:p-5 text-center cursor-default"
                 >
-                  <div className="text-[#FFFFFF] w-8 h-8 mx-auto mb-3">
-                    {Icon && <Icon size={32} />}
+                  <div className="text-[#FFFFFF] w-7 h-7 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3">
+                    {Icon && <Icon size={28} />}
                   </div>
-                  <p className="text-sm font-medium text-[#FFFFFF] mb-3">
+                  <p className="text-xs sm:text-sm font-medium text-[#FFFFFF] mb-2 sm:mb-3">
                     {skill.name}
                   </p>
                   <div className="w-full bg-[#1A1A1A] rounded-full h-1.5 mb-1">
@@ -124,7 +124,7 @@ export default function Skills() {
                       transition={{ duration: 1.5, ease: "easeOut" }}
                     />
                   </div>
-                  <p className="text-xs text-[#A3A3A3]">{skill.level}%</p>
+                  <p className="text-[10px] sm:text-xs text-[#A3A3A3]">{skill.level}%</p>
                 </motion.div>
               );
             })}
