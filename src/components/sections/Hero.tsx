@@ -108,7 +108,11 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: Math.max(centerImgOpacity, 0), scale: centerImgScale }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="object-contain mx-auto mb-6 mt-8 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64"
+          className="object-contain mx-auto mb-6 mt-8"
+          style={{
+            width: "clamp(10rem, 25vw, 16rem)",
+            height: "clamp(10rem, 25vw, 16rem)",
+          }}
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
