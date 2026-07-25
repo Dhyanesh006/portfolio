@@ -270,4 +270,4 @@ export const SKILL_CATEGORIES = [
   { key: "cybersecurity", label: "Cybersecurity" },
 ] as const;
 
-export const GITHUB_USERNAME = "Dhyanesh006";
+export const GITHUB_USERNAME = "dhyanesh006";
