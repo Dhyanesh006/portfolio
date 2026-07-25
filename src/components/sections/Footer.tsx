@@ -12,7 +12,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#1A1A1A] py-8 sm:py-12">
+    <footer className="border-t border-[#1A1A1A] py-8 sm:py-12 pb-20 sm:pb-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           <div className="flex items-center gap-3">

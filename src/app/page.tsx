@@ -23,7 +23,7 @@ export default function Home() {
       <Navbar />
       <CommandPalette />
 
-      <main>
+      <main className="overflow-x-hidden">
         <Hero />
         <About />
         <Skills />

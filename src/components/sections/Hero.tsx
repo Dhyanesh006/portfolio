@@ -120,8 +120,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="object-contain mx-auto mb-6 mt-8"
           style={{
-            width: "clamp(8rem, 20vw, 16rem)",
-            height: "clamp(8rem, 20vw, 16rem)",
+            width: "clamp(10rem, 40vw, 16rem)",
+            height: "clamp(10rem, 40vw, 16rem)",
           }}
         />
         <motion.h1
