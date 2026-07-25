@@ -88,6 +88,14 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <motion.img
+          src="/images/profile.jpg"
+          alt="Dhyanesh V"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-white/20 mx-auto mb-6 shadow-lg shadow-white/5"
+        />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
