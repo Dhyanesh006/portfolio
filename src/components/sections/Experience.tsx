@@ -30,7 +30,7 @@ export default function Experience() {
               </div>
 
               <div
-                className={`w-full md:w-[calc(50%-2rem)] ml-14 sm:ml-16 md:ml-0 ${
+                className={`w-full md:w-[calc(50%-2rem)] ml-10 sm:ml-12 md:ml-0 ${
                   i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
                 }`}
               >
