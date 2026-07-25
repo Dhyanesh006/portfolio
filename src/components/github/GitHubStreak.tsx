@@ -1,23 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { fetchStreak, type StreakData } from "@/lib/github";
 import { StreakSkeleton } from "./GitHubSkeleton";
 import { Flame, Trophy, BarChart3 } from "lucide-react";
+import type { StreakData } from "@/lib/github";
 
-export default function GitHubStreak() {
-  const [streak, setStreak] = useState<StreakData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+interface Props {
+  streak: StreakData | null;
+  loading: boolean;
+  error: boolean;
+}
 
-  useEffect(() => {
-    fetchStreak()
-      .then(setStreak)
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
-
+export default function GitHubStreak({ streak, loading, error }: Props) {
   if (loading) return <StreakSkeleton />;
 
   if (error || !streak) {

@@ -1,32 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { fetchProfile, type GitHubProfile } from "@/lib/github";
 import { ProfileSkeleton } from "./GitHubSkeleton";
-import { User, GitBranch, Users, ExternalLink } from "lucide-react";
+import { GitBranch, Users, ExternalLink } from "lucide-react";
+import type { GitHubDataBundle } from "@/lib/github";
 
-export default function GitHubProfileSummary() {
-  const [profile, setProfile] = useState<GitHubProfile | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+interface Props {
+  data: GitHubDataBundle | null;
+  loading: boolean;
+  error: boolean;
+}
 
-  useEffect(() => {
-    fetchProfile()
-      .then(setProfile)
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
-
+export default function GitHubProfileSummary({ data, loading, error }: Props) {
   if (loading) return <ProfileSkeleton />;
 
-  if (error || !profile) {
+  if (error || !data) {
     return (
       <div className="glass-card rounded-2xl p-5 text-center">
         <p className="text-[#A3A3A3] text-xs">Unable to load profile</p>
       </div>
     );
   }
+
+  const { profile } = data;
 
   return (
     <motion.div

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Users, GitFork, Star, ExternalLink, Loader2 } from "lucide-react";
 import { GithubIcon } from "@/lib/brand-icons";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { GITHUB_USERNAME } from "@/lib/data";
+import { fetchGitHubData, fetchStreak, type GitHubDataBundle, type StreakData } from "@/lib/github";
 import type { GitHubData, GitHubRepo } from "@/types";
 import GitHubContributionGraph from "@/components/github/GitHubContributionGraph";
 import GitHubStats from "@/components/github/GitHubStats";
@@ -16,26 +16,28 @@ import GitHubProfileSummary from "@/components/github/GitHubProfileSummary";
 export default function GitHubSection() {
   const [profile, setProfile] = useState<GitHubData | null>(null);
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [bundle, setBundle] = useState<GitHubDataBundle | null>(null);
+  const [streak, setStreak] = useState<StreakData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [profileRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
-          fetch(
-            `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`
-          ),
+        const [bundleData, streakData] = await Promise.all([
+          fetchGitHubData(),
+          fetchStreak().catch(() => null),
         ]);
 
-        if (!profileRes.ok || !reposRes.ok) throw new Error("Failed");
+        const reposRes = await fetch(
+          `https://api.github.com/users/${bundleData.profile.login}/repos?sort=updated&per_page=6`
+        );
+        const reposData = reposRes.ok ? await reposRes.json() : [];
 
-        const profileData = await profileRes.json();
-        const reposData = await reposRes.json();
-
-        setProfile(profileData);
+        setProfile(bundleData.profile as unknown as GitHubData);
         setRepos(reposData);
+        setBundle(bundleData);
+        setStreak(streakData);
       } catch {
         setError(true);
       } finally {
@@ -120,7 +122,7 @@ export default function GitHubSection() {
             <h3 className="text-base sm:text-lg font-semibold text-[#FFFFFF] mb-3 sm:mb-4">
               Recent Repositories
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-10">
               {repos.map((repo, i) => (
                 <motion.a
                   key={repo.id}
@@ -186,17 +188,17 @@ export default function GitHubSection() {
               ))}
             </div>
 
-            <div className="mt-8 sm:mt-10 space-y-6">
+            <div className="space-y-6">
               <GitHubContributionGraph />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <GitHubStats />
-                <GitHubStreak />
+                <GitHubStats data={bundle} loading={false} error={!bundle} />
+                <GitHubStreak streak={streak} loading={false} error={!streak} />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <GitHubTopLanguages />
-                <GitHubProfileSummary />
+                <GitHubTopLanguages data={bundle} loading={false} error={!bundle} />
+                <GitHubProfileSummary data={bundle} loading={false} error={!bundle} />
               </div>
             </div>
           </>

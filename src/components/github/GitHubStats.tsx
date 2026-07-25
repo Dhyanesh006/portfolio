@@ -2,17 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { fetchStats } from "@/lib/github";
+import { fetchGitHubData, type GitHubDataBundle } from "@/lib/github";
 import { StatCardSkeleton } from "./GitHubSkeleton";
-import { Star, GitFork, Users, GitBranch, AlertCircle } from "lucide-react";
-
-interface Stats {
-  publicRepos: number;
-  followers: number;
-  following: number;
-  totalStars: number;
-  totalForks: number;
-}
+import { Star, GitFork, Users, GitBranch } from "lucide-react";
 
 const STAT_ITEMS = [
   { key: "publicRepos" as const, label: "Repos", icon: GitBranch },
@@ -22,18 +14,13 @@ const STAT_ITEMS = [
   { key: "totalForks" as const, label: "Forks", icon: GitFork },
 ];
 
-export default function GitHubStats() {
-  const [stats, setStats] = useState<Stats | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+interface Props {
+  data: GitHubDataBundle | null;
+  loading: boolean;
+  error: boolean;
+}
 
-  useEffect(() => {
-    fetchStats()
-      .then(setStats)
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
-
+export default function GitHubStats({ data, loading, error }: Props) {
   if (loading) {
     return (
       <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
@@ -44,13 +31,15 @@ export default function GitHubStats() {
     );
   }
 
-  if (error || !stats) {
+  if (error || !data) {
     return (
       <div className="glass-card rounded-xl p-4 text-center">
         <p className="text-[#A3A3A3] text-xs">Unable to load stats</p>
       </div>
     );
   }
+
+  const { stats } = data;
 
   return (
     <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
