@@ -71,16 +71,14 @@ function compute(width: number): ScreenSize {
   };
 }
 
-export function useScreenSize(): ScreenSize & { mounted: boolean } {
+export function useScreenSize(): ScreenSize {
   const [size, setSize] = useState<ScreenSize>(() => compute(1024));
-  const [mounted, setMounted] = useState(false);
 
   const updateSize = useCallback(() => {
     setSize(compute(window.innerWidth));
   }, []);
 
   useEffect(() => {
-    setMounted(true);
     updateSize();
 
     let rafId: number;
@@ -96,5 +94,5 @@ export function useScreenSize(): ScreenSize & { mounted: boolean } {
     };
   }, [updateSize]);
 
-  return { ...size, mounted };
+  return size;
 }

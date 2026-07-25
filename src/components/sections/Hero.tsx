@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
 import { useTypingAnimation } from "@/hooks/use-typing-animation";
-import { useScreenSize } from "@/hooks/use-screen-size";
 import { TYPING_TEXTS } from "@/lib/data";
 
 const SOCIALS = [
@@ -38,21 +37,29 @@ function generateParticles(count: number): Particle[] {
   }));
 }
 
+function getParticleCount(): number {
+  if (typeof window === "undefined") return 30;
+  const w = window.innerWidth;
+  if (w < 480) return 10;
+  if (w < 768) return 15;
+  if (w < 1024) return 30;
+  if (w < 1440) return 40;
+  return 50;
+}
+
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
-  const screen = useScreenSize();
-  const [particles, setParticles] = useState<Particle[]>([]);
+  const [particleCount, setParticleCount] = useState(30);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    setParticles(generateParticles(screen.particleCount));
-  }, [screen.particleCount]);
-
-  useEffect(() => {
+    setParticleCount(getParticleCount());
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const particles = useMemo(() => generateParticles(particleCount), [particleCount]);
 
   const heroHeight = typeof window !== "undefined" ? window.innerHeight : 900;
   const progress = Math.min(scrollY / (heroHeight * 0.6), 1);
@@ -111,15 +118,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: Math.max(centerImgOpacity, 0), scale: centerImgScale }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="object-contain mx-auto mb-6 mt-8 w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-64 lg:h-64"
-          style={screen.mounted ? { width: screen.profileImage, height: screen.profileImage } : undefined}
+          className="object-contain mx-auto mb-6 mt-8"
+          style={{
+            width: "clamp(8rem, 20vw, 16rem)",
+            height: "clamp(8rem, 20vw, 16rem)",
+          }}
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4 sm:mb-6"
-          style={screen.mounted ? { fontSize: screen.headingSize } : undefined}
+          className="font-bold text-gradient mb-4 sm:mb-6"
+          style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
         >
           Dhyanesh V
         </motion.h1>
@@ -130,9 +140,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="h-10 sm:h-12 flex items-center justify-center mb-6 sm:mb-8"
         >
-          <span className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#A3A3A3]"
-            style={screen.mounted ? { fontSize: screen.subtitleSize } : undefined}
-          >
+          <span className="text-[#A3A3A3]" style={{ fontSize: "clamp(1rem, 2.5vw, 1.75rem)" }}>
             {typedText}
           </span>
           <span className="typing-cursor ml-1" />
@@ -184,7 +192,6 @@ export default function Hero() {
       </motion.div>
     </section>
 
-    {screen.mounted && (
     <div
       className="fixed pointer-events-none z-50 hidden md:block"
       style={{
@@ -201,14 +208,13 @@ export default function Hero() {
           alt="Dhyanesh V"
           className="object-contain rounded-full"
           style={{
-            width: screen.bubbleImage,
-            height: screen.bubbleImage,
+            width: "clamp(6rem, 10vw, 15rem)",
+            height: "clamp(6rem, 10vw, 15rem)",
           }}
         />
         <div className="bubble-tail" />
       </div>
     </div>
-    )}
   </>
   );
 }
