@@ -4,32 +4,58 @@ A premium, dark-mode developer portfolio built with Next.js 16, TypeScript, Tail
 
 ## Tech Stack
 
-- **Framework:** Next.js 16 (App Router, static export)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Icons:** Lucide React + custom SVG brand icons
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS v4 (via PostCSS, `@theme` in CSS)
+- **Animations:** Framer Motion 12
+- **Icons:** Lucide React + Google Material Symbols (CDN) + custom SVG brand icons
 - **Carousel:** Embla Carousel with autoplay
 - **Fonts:** Geist Sans & Geist Mono (self-hosted via `next/font`)
+- **Utilities:** clsx + tailwind-merge (`cn()` helper)
 
 ## Features
 
+### Hero & Layout
 - Animated particle background with floating gradient blobs
 - Typing animation for role titles
-- Glassmorphism cards with hover glow effects
-- Custom cursor with interactive hover states
+- Glassmorphism navbar with active section highlighting
+- Mobile: icon-only bottom navigation bar
 - Scroll progress bar
-- Command palette (Ctrl+K / Cmd+K)
 - Back-to-top button
-- Interactive skill cards with animated progress bars
+- Command palette (Ctrl+K / Cmd+K)
+
+### Sections
+- Interactive skill cards with animated progress bars and category filters
 - Expandable project cards with modal detail view
-- Experience timeline
-- Live GitHub profile data via GitHub API
-- Certificate carousel
-- Contact form with animated states
-- Responsive design (mobile-first)
-- Loading screen
-- Active section highlighting in navbar
+- Experience timeline (alternating left/right on desktop, single column on mobile)
+- Certificate carousel with autoplay
+- Contact form with animated submit states
+- Footer with social links
+
+### GitHub Integration
+- **GitHub Profile Summary** — avatar, username, bio, repos, followers, following
+- **GitHub Stats** — public repos, followers, following, total stars, total forks
+- **GitHub Streak** — current streak, longest streak, total contribution days
+- **GitHub Contribution Graph** — live contribution heatmap (last year)
+- **Top Languages** — most-used languages with animated progress bars and color pills
+- **Recent Repositories** — latest 6 repos with language, stars, and forks
+- All data fetched from GitHub API with server-side caching (30min) via `/api/github`
+- Contribution data from `github-contributions-api` with 1hr cache
+
+### Mobile Optimizations
+- Fluid sizing with CSS `clamp()` for all images and text (no breakpoint jumps)
+- Real-time screen detection via `useScreenSize` hook
+- 44px minimum touch targets on all interactive elements
+- Reduced particle count on mobile for performance
+- `prefers-reduced-motion` support
+- Reduced backdrop-filter blur on mobile for GPU performance
+
+### Design System
+- Custom glass-card, liquid-glass, and noise-bg utilities
+- Animated progress bars, skill cards, and project cards
+- Custom cursor (desktop only, hidden on mobile)
+- Dot-grid background pattern
+- Comic bubble frame for profile image
 
 ## Getting Started
 
@@ -72,16 +98,6 @@ npm run start
 2. Import the repository on [vercel.com](https://vercel.com)
 3. Deploy — no configuration needed
 
-### GitHub Pages
-
-The project uses `output: "export"` in `next.config.ts` for static export.
-
-```bash
-npm run build
-```
-
-The static files will be in the `out/` directory. Deploy to GitHub Pages or any static host.
-
 ## Environment Variables
 
 Copy `.env.example` to `.env.local`:
@@ -93,16 +109,27 @@ cp .env.example .env.local
 | Variable | Description | Default |
 |---|---|---|
 | `NEXT_PUBLIC_GITHUB_USERNAME` | GitHub username for API | `dhyanesh-v` |
+| `GITHUB_TOKEN` | Optional GitHub PAT for higher API rate limits (5000/hr vs 60/hr) | — |
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── globals.css
+│   ├── api/
+│   │   └── github/
+│   │       └── route.ts          # Cached GitHub API endpoint
+│   ├── globals.css               # Theme, animations, custom utilities
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
+│   ├── github/
+│   │   ├── GitHubContributionGraph.tsx
+│   │   ├── GitHubStats.tsx
+│   │   ├── GitHubStreak.tsx
+│   │   ├── GitHubTopLanguages.tsx
+│   │   ├── GitHubProfileSummary.tsx
+│   │   └── GitHubSkeleton.tsx
 │   ├── layout/
 │   │   ├── Navbar.tsx
 │   │   ├── CustomCursor.tsx
@@ -127,11 +154,13 @@ src/
 │   ├── use-scroll-progress.ts
 │   ├── use-count-up.ts
 │   ├── use-active-section.ts
-│   └── use-mouse-glow.ts
+│   ├── use-mouse-glow.ts
+│   └── use-screen-size.ts
 ├── lib/
-│   ├── utils.ts
-│   ├── data.ts
-│   └── brand-icons.tsx
+│   ├── utils.ts                  # cn() helper
+│   ├── data.ts                   # All static content & config
+│   ├── github.ts                 # GitHub API types & fetch utilities
+│   └── brand-icons.tsx           # Custom SVG icons
 └── types/
     └── index.ts
 ```
@@ -140,9 +169,10 @@ src/
 
 Edit `src/lib/data.ts` to update:
 - Personal info and social links
+- GitHub username
 - Skills and proficiency levels
 - Projects
 - Work experience
 - Certificates
 
-Edit `src/app/globals.css` to change the color theme.
+Edit `src/app/globals.css` to change the color theme (via `@theme` variables).
