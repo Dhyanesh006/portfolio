@@ -47,7 +47,7 @@ export const TYPING_TEXTS = [
 export const COUNTER_STATS: CounterStat[] = [
   { label: "Years Learning", value: 4, suffix: "+", icon: "calendar" },
   { label: "Projects Built", value: 2, suffix: "+", icon: "code" },
-  { label: "Internships", value: 1, suffix: "", icon: "briefcase" },
+  { label: "Internships", value: 2, suffix: "", icon: "briefcase" },
   { label: "GitHub Contributions", value: 500, suffix: "+", icon: "git-commit" },
 ];
 
@@ -127,6 +127,18 @@ export const PROJECTS: Project[] = [
 ];
 
 export const EXPERIENCES: Experience[] = [
+  {
+    id: "django-dev",
+    title: "Python with Django Intern",
+    company: "Nitroware Technologies Pvt. Ltd.",
+    period: "Dec 2025 – Jan 2026",
+    description: [
+      "Built backend web applications using Python and Django",
+      "Worked with databases and web development technologies",
+      "Successfully completed the internship with a Good conduct rating",
+    ],
+    tags: ["Python", "Django", "Web Development", "Databases"],
+  },
   {
     id: "data-analytics",
     title: "Data Analytics Intern",
