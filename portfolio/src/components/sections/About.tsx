@@ -6,8 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const INFO_ITEMS = [
   { icon: "cake", label: "20" },
   { icon: "location_on", label: "Coimbatore, India" },
-  { icon: "school", label: "BE CSE Student" },
-  { icon: "work", label: "Full Stack Developer" },
+  { icon: "school", label: "B.E Computer Science And Engineering Student" },
 ];
 
 const SKILL_ICONS = [
@@ -61,7 +60,7 @@ export default function About() {
               <div className="flex items-center gap-4 mb-4">
                 <div>
                   <h3 className="text-[#FFFFFF] font-bold text-lg">Dhyanesh V</h3>
-                  <p className="text-[#A3A3A3] text-sm">Full Stack Developer</p>
+                  <p className="text-[#A3A3A3] text-sm">B.E Computer Science And Engineering</p>
                 </div>
               </div>
               <div className="space-y-4">

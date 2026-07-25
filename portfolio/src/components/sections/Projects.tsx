@@ -29,16 +29,24 @@ function ProjectCard({
         data-cursor-hover
       >
         <div className="relative h-48 overflow-hidden">
-          <div
-            className="absolute inset-0 animate-gradient"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2), rgba(139,92,246,0.1))",
-              backgroundSize: "200% 200%",
-            }}
-          />
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 animate-gradient"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2), rgba(139,92,246,0.1))",
+                backgroundSize: "200% 200%",
+              }}
+            />
+          )}
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-6xl font-bold text-white/5">{index + 1}</span>
+            {!project.image && <span className="text-6xl font-bold text-white/5">{index + 1}</span>}
           </div>
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
         </div>
@@ -101,6 +109,13 @@ function ProjectCard({
               <h3 className="text-2xl font-bold text-[#FFFFFF] mb-2">
                 {project.title}
               </h3>
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-contain rounded-lg mb-4"
+                />
+              )}
               <p className="text-[#FFFFFF] text-sm mb-6">{project.tech.join(" / ")}</p>
 
               <p className="text-[#A3A3A3] leading-relaxed mb-6">

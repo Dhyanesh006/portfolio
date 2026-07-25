@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dhyanesh V | Portfolio",
   description:
-    "Computer Science & Engineering Student. Full Stack Developer, Cybersecurity Enthusiast, and Cloud & Networking Learner.",
+    "B.E Computer Science And Engineering Student. Cybersecurity Enthusiast, and Cloud & Networking Learner.",
   keywords: [
     "Dhyanesh V",
     "Portfolio",
-    "Full Stack Developer",
+
     "Cybersecurity",
     "Spring Boot",
     "React",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dhyanesh V | Portfolio",
     description:
-      "Computer Science & Engineering Student. Full Stack Developer, Cybersecurity Enthusiast.",
+      "B.E Computer Science And Engineering Student. Cybersecurity Enthusiast.",
     type: "website",
   },
 };

@@ -39,7 +39,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const TYPING_TEXTS = [
   "Computer Science Student",
-  "Full Stack Developer",
+
   "Cybersecurity Enthusiast",
   "Networking & Cloud Learner",
 ];
@@ -47,7 +47,7 @@ export const TYPING_TEXTS = [
 export const COUNTER_STATS: CounterStat[] = [
   { label: "Years Learning", value: 4, suffix: "+", icon: "calendar" },
   { label: "Projects Built", value: 2, suffix: "+", icon: "code" },
-  { label: "Internships", value: 3, suffix: "", icon: "briefcase" },
+  { label: "Internships", value: 1, suffix: "", icon: "briefcase" },
   { label: "GitHub Contributions", value: 500, suffix: "+", icon: "git-commit" },
 ];
 
@@ -99,6 +99,7 @@ export const PROJECTS: Project[] = [
       "Turborepo",
     ],
     github: "https://github.com/Dhyanesh006/Rental_Hub",
+    image: "/images/projects/rental-hub.png",
     featured: true,
   },
   {
@@ -120,6 +121,7 @@ export const PROJECTS: Project[] = [
       "JavaScript",
     ],
     github: "https://github.com/Dhyanesh006/pcstore",
+    image: "/images/projects/pcstore.png",
     featured: true,
   },
 ];
@@ -128,38 +130,14 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "data-analytics",
     title: "Data Analytics Intern",
-    company: "Tech Solutions Inc.",
-    period: "2024",
+    company: "CodeCore Global HiTech Solutions",
+    period: "Jun 2026 – Jul 2026",
     description: [
-      "Analyzed large datasets using Python and Power BI to generate actionable insights",
-      "Created interactive dashboards and visualizations for stakeholder reporting",
-      "Automated data cleaning pipelines reducing manual processing time by 40%",
+      "Cleaned, transformed, and analyzed retail sales data using Microsoft Excel, Power BI, and Tableau",
+      "Built interactive dashboards, created KPIs and DAX measures, and validated business reports for accurate decision-making",
+      "Tested dashboard functionality, documented project progress, and presented insights from the Retail Sales Analytics project",
     ],
-    tags: ["Python", "Power BI", "SQL", "Data Analysis"],
-  },
-  {
-    id: "ethical-hacking",
-    title: "Ethical Hacking Intern",
-    company: "CyberSec Labs",
-    period: "2024",
-    description: [
-      "Conducted penetration testing and vulnerability assessments on client networks",
-      "Documented security findings and provided remediation recommendations",
-      "Performed network traffic analysis using Wireshark and Nmap",
-    ],
-    tags: ["Penetration Testing", "Nmap", "Wireshark", "Security Analysis"],
-  },
-  {
-    id: "fullstack-dev",
-    title: "Full Stack Development Intern",
-    company: "Digital Innovations",
-    period: "2023",
-    description: [
-      "Developed RESTful APIs using Spring Boot and MySQL for enterprise applications",
-      "Built responsive front-end interfaces using React and Bootstrap",
-      "Participated in agile development cycles and code reviews",
-    ],
-    tags: ["Java", "Spring Boot", "React", "MySQL", "REST APIs"],
+    tags: ["Excel", "Power BI", "Tableau", "Data Analysis", "DAX"],
   },
 ];
 

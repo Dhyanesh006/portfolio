@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
 import { useTypingAnimation } from "@/hooks/use-typing-animation";
 import { TYPING_TEXTS } from "@/lib/data";
@@ -41,12 +40,25 @@ function generateParticles(): Particle[] {
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
   const [particles, setParticles] = useState<Particle[]>([]);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setParticles(generateParticles());
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const heroHeight = typeof window !== "undefined" ? window.innerHeight : 900;
+  const progress = Math.min(scrollY / (heroHeight * 0.6), 1);
+
+  const centerImgOpacity = 1 - progress * 1.5;
+  const centerImgScale = 1 - progress * 0.4;
+  const rightImgOpacity = progress > 0.3 ? Math.min((progress - 0.3) / 0.35, 1) : 0;
+  const rightImgScale = progress > 0.3 ? Math.min((progress - 0.3) / 0.35, 1) : 0;
+
   return (
+    <>
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -92,9 +104,13 @@ export default function Hero() {
           src="/images/profile.jpg"
           alt="Dhyanesh V"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: Math.max(centerImgOpacity, 0), scale: centerImgScale }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-white/20 mx-auto mb-6 shadow-lg shadow-white/5"
+          className="object-contain mx-auto mb-6 mt-8"
+          style={{
+            width: "16rem",
+            height: "16rem",
+          }}
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -138,26 +154,6 @@ export default function Hero() {
             </motion.a>
           ))}
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <motion.a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-sm border border-[#FFFFFF]/30 text-[#FFFFFF] hover:bg-[#FFFFFF]/10 transition-colors"
-          >
-            <ArrowDown size={18} />
-            Scroll Down
-          </motion.a>
-        </motion.div>
       </div>
 
       <motion.div
@@ -182,5 +178,27 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
+
+    <div
+      className="fixed pointer-events-none z-50 hidden md:block"
+      style={{
+        top: "50%",
+        right: "3%",
+        transform: `translateY(-50%) scale(${rightImgScale})`,
+        opacity: rightImgOpacity,
+        transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out",
+      }}
+    >
+      <div className="bubble-frame">
+        <img
+          src="/images/profile.jpg"
+          alt="Dhyanesh V"
+          className="object-contain rounded-full"
+          style={{ width: "13rem", height: "13rem" }}
+        />
+        <div className="bubble-tail" />
+      </div>
+    </div>
+  </>
   );
 }
