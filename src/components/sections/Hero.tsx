@@ -111,18 +111,15 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: Math.max(centerImgOpacity, 0), scale: centerImgScale }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="object-contain mx-auto mb-6 mt-8"
-          style={{
-            width: screen.profileImage,
-            height: screen.profileImage,
-          }}
+          className="object-contain mx-auto mb-6 mt-8 w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-64 lg:h-64"
+          style={screen.mounted ? { width: screen.profileImage, height: screen.profileImage } : undefined}
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-bold text-gradient mb-4 sm:mb-6"
-          style={{ fontSize: screen.headingSize }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gradient mb-4 sm:mb-6"
+          style={screen.mounted ? { fontSize: screen.headingSize } : undefined}
         >
           Dhyanesh V
         </motion.h1>
@@ -133,7 +130,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="h-10 sm:h-12 flex items-center justify-center mb-6 sm:mb-8"
         >
-          <span className="text-[#A3A3A3]" style={{ fontSize: screen.subtitleSize }}>
+          <span className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#A3A3A3]"
+            style={screen.mounted ? { fontSize: screen.subtitleSize } : undefined}
+          >
             {typedText}
           </span>
           <span className="typing-cursor ml-1" />
@@ -185,6 +184,7 @@ export default function Hero() {
       </motion.div>
     </section>
 
+    {screen.mounted && (
     <div
       className="fixed pointer-events-none z-50 hidden md:block"
       style={{
@@ -208,6 +208,7 @@ export default function Hero() {
         <div className="bubble-tail" />
       </div>
     </div>
+    )}
   </>
   );
 }
