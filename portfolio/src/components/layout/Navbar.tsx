@@ -30,7 +30,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       className={cn(
         "fixed left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:max-w-4xl md:w-[calc(100%-2rem)] z-50 top-4 transition-all duration-300 rounded-2xl overflow-hidden",
         scrolled ? "liquid-glass-scrolled" : "liquid-glass"

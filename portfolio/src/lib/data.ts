@@ -39,8 +39,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const TYPING_TEXTS = [
   "Computer Science Student",
-
-  "Cybersecurity Enthusiast",
+  "Cybersecurity Learner",
   "Networking & Cloud Learner",
 ];
 
