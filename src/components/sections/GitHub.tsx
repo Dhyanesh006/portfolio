@@ -7,6 +7,11 @@ import { GithubIcon } from "@/lib/brand-icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { GITHUB_USERNAME } from "@/lib/data";
 import type { GitHubData, GitHubRepo } from "@/types";
+import GitHubContributionGraph from "@/components/github/GitHubContributionGraph";
+import GitHubStats from "@/components/github/GitHubStats";
+import GitHubStreak from "@/components/github/GitHubStreak";
+import GitHubTopLanguages from "@/components/github/GitHubTopLanguages";
+import GitHubProfileSummary from "@/components/github/GitHubProfileSummary";
 
 export default function GitHubSection() {
   const [profile, setProfile] = useState<GitHubData | null>(null);
@@ -179,6 +184,20 @@ export default function GitHubSection() {
                   </div>
                 </motion.a>
               ))}
+            </div>
+
+            <div className="mt-8 sm:mt-10 space-y-6">
+              <GitHubContributionGraph />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <GitHubStats />
+                <GitHubStreak />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <GitHubTopLanguages />
+                <GitHubProfileSummary />
+              </div>
             </div>
           </>
         )}
