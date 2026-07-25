@@ -185,7 +185,7 @@ export default function Hero() {
       className="fixed pointer-events-none z-50 hidden md:block"
       style={{
         top: "50%",
-        right: "3%",
+        right: "clamp(1%, 3vw, 3%)",
         transform: `translateY(-50%) scale(${rightImgScale})`,
         opacity: rightImgOpacity,
         transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out",
@@ -196,7 +196,10 @@ export default function Hero() {
           src="/images/profile.jpg"
           alt="Dhyanesh V"
           className="object-contain rounded-full"
-          style={{ width: "13rem", height: "13rem" }}
+          style={{
+            width: "clamp(8rem, 12vw, 13rem)",
+            height: "clamp(8rem, 12vw, 13rem)",
+          }}
         />
         <div className="bubble-tail" />
       </div>
