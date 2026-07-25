@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
 import { useTypingAnimation } from "@/hooks/use-typing-animation";
+import { useScreenSize } from "@/hooks/use-screen-size";
 import { TYPING_TEXTS } from "@/lib/data";
 
 const SOCIALS = [
@@ -26,9 +27,7 @@ interface Particle {
   duration: number;
 }
 
-function generateParticles(): Particle[] {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const count = isMobile ? 20 : 50;
+function generateParticles(count: number): Particle[] {
   return Array.from({ length: count }, (_, i) => ({
     id: i,
     x: seededRandom(i * 7 + 1) * 100,
@@ -41,11 +40,15 @@ function generateParticles(): Particle[] {
 
 export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
+  const screen = useScreenSize();
   const [particles, setParticles] = useState<Particle[]>([]);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    setParticles(generateParticles());
+    setParticles(generateParticles(screen.particleCount));
+  }, [screen.particleCount]);
+
+  useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -110,15 +113,16 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="object-contain mx-auto mb-6 mt-8"
           style={{
-            width: "clamp(10rem, 25vw, 16rem)",
-            height: "clamp(10rem, 25vw, 16rem)",
+            width: screen.profileImage,
+            height: screen.profileImage,
           }}
         />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold text-gradient mb-4 sm:mb-6"
+          className="font-bold text-gradient mb-4 sm:mb-6"
+          style={{ fontSize: screen.headingSize }}
         >
           Dhyanesh V
         </motion.h1>
@@ -129,7 +133,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="h-10 sm:h-12 flex items-center justify-center mb-6 sm:mb-8"
         >
-          <span className="text-base sm:text-xl md:text-2xl text-[#A3A3A3]">
+          <span className="text-[#A3A3A3]" style={{ fontSize: screen.subtitleSize }}>
             {typedText}
           </span>
           <span className="typing-cursor ml-1" />
@@ -197,8 +201,8 @@ export default function Hero() {
           alt="Dhyanesh V"
           className="object-contain rounded-full"
           style={{
-            width: "clamp(9rem, 2vw + 5rem, 16rem)",
-            height: "clamp(9rem, 2vw + 5rem, 16rem)",
+            width: screen.bubbleImage,
+            height: screen.bubbleImage,
           }}
         />
         <div className="bubble-tail" />
