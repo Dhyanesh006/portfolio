@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/lib/brand-icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { SOCIAL_LINKS } from "@/lib/data";
@@ -14,26 +13,6 @@ const ICON_MAP: Record<string, React.ElementType> = {
 };
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-
-    await new Promise((r) => setTimeout(r, 1000));
-
-    setSent(true);
-    setSending(false);
-    setFormData({ name: "", email: "", message: "" });
-
-    setTimeout(() => setSent(false), 5000);
-  };
 
   return (
     <section id="contact" className="py-16 sm:py-24">
@@ -95,96 +74,18 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex items-center justify-center"
           >
-            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-5 sm:p-8 space-y-4 sm:space-y-5">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-[#FFFFFF] mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50 min-h-[44px]"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-[#FFFFFF] mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all placeholder:text-[#A3A3A3]/50 min-h-[44px]"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-[#FFFFFF] mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  className="w-full px-4 py-3.5 sm:py-3 rounded-xl bg-[#000000] border border-[#1A1A1A] text-[#FFFFFF] text-sm focus:outline-none focus:border-[#FFFFFF]/50 focus:ring-1 focus:ring-[#FFFFFF]/20 transition-all resize-none placeholder:text-[#A3A3A3]/50 min-h-[100px]"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={sending || sent}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3.5 sm:py-3 rounded-xl font-semibold text-sm text-black flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all min-h-[44px]"
-                style={{
-                  background: sent
-                    ? "#059669"
-                    : "linear-gradient(135deg, #FFFFFF, #CCCCCC)",
-                }}
-              >
-                {sent ? (
-                  <>
-                    <CheckCircle size={18} />
-                    Message Sent!
-                  </>
-                ) : sending ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Send Message
-                  </>
-                )}
-              </motion.button>
-            </form>
+            <motion.a
+              href="mailto:dhyanesh006@gmail.com?subject=Portfolio%20Inquiry"
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-sm text-black transition-all min-h-[44px]"
+              style={{ background: "linear-gradient(135deg, #FFFFFF, #CCCCCC)" }}
+            >
+              <Send size={18} />
+              Send Me an Email
+            </motion.a>
           </motion.div>
         </div>
       </div>
