@@ -197,8 +197,8 @@ export default function Hero() {
           alt="Dhyanesh V"
           className="object-contain rounded-full"
           style={{
-            width: "clamp(5rem, 1.143vw + 3.143rem, 13rem)",
-            height: "clamp(5rem, 1.143vw + 3.143rem, 13rem)",
+            width: "clamp(7rem, 1.714vw + 4rem, 13rem)",
+            height: "clamp(7rem, 1.714vw + 4rem, 13rem)",
           }}
         />
         <div className="bubble-tail" />
