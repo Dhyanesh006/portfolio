@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Users, GitFork, Star, ExternalLink, Loader2 } from "lucide-react";
+import { GitFork, Star, ExternalLink, Loader2 } from "lucide-react";
 import { GithubIcon } from "@/lib/brand-icons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { fetchGitHubData, fetchStreak, type GitHubDataBundle, type StreakData } from "@/lib/github";
@@ -66,59 +66,6 @@ export default function GitHubSection() {
           </div>
         ) : (
           <>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass-card rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8"
-            >
-              <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
-                <img
-                  src={profile.avatar_url}
-                  alt={profile.name || profile.login}
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#FFFFFF]/30"
-                  loading="lazy"
-                />
-                <div className="text-center md:text-left">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#FFFFFF]">
-                    {profile.name || profile.login}
-                  </h3>
-                  {profile.bio && (
-                    <p className="text-[#A3A3A3] text-xs sm:text-sm mt-1">{profile.bio}</p>
-                  )}
-                </div>
-                <div className="flex gap-6 sm:gap-8 md:ml-auto">
-                  <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
-                      <GithubIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                      <span>Repos</span>
-                    </div>
-                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
-                      {profile.public_repos}
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
-                      <Users size={12} className="sm:w-3.5 sm:h-3.5" />
-                      <span>Followers</span>
-                    </div>
-                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
-                      {profile.followers}
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <div className="flex items-center gap-1 text-[#A3A3A3] text-[10px] sm:text-xs mb-1">
-                      <Users size={12} className="sm:w-3.5 sm:h-3.5" />
-                      <span>Following</span>
-                    </div>
-                    <p className="text-xl sm:text-2xl font-bold text-[#FFFFFF]">
-                      {profile.following}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
             <h3 className="text-base sm:text-lg font-semibold text-[#FFFFFF] mb-3 sm:mb-4">
               Recent Repositories
             </h3>
