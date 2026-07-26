@@ -51,23 +51,52 @@ export default function Hero() {
   const typedText = useTypingAnimation(TYPING_TEXTS, 100, 50, 2000);
   const [particleCount, setParticleCount] = useState(30);
   const [scrollY, setScrollY] = useState(0);
+  const [sectionTops, setSectionTops] = useState({ about: 0, contact: 0 });
 
   useEffect(() => {
     setParticleCount(getParticleCount());
+
+    const updatePositions = () => {
+      const about = document.getElementById("about");
+      const contact = document.getElementById("contact");
+      if (about) setSectionTops((p) => ({ ...p, about: about.offsetTop }));
+      if (contact) setSectionTops((p) => ({ ...p, contact: contact.offsetTop }));
+    };
+
     const handleScroll = () => setScrollY(window.scrollY);
+
+    updatePositions();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updatePositions);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updatePositions);
+    };
   }, []);
 
   const particles = useMemo(() => generateParticles(particleCount), [particleCount]);
 
   const heroHeight = typeof window !== "undefined" ? window.innerHeight : 900;
+  const docHeight = typeof document !== "undefined"
+    ? document.documentElement.scrollHeight - window.innerHeight
+    : 3000;
   const progress = Math.min(scrollY / (heroHeight * 0.6), 1);
 
   const centerImgOpacity = 1 - progress * 1.5;
   const centerImgScale = 1 - progress * 0.4;
   const rightImgOpacity = progress > 0.3 ? Math.min((progress - 0.3) / 0.35, 1) : 0;
-  const rightImgScale = progress > 0.3 ? Math.min((progress - 0.3) / 0.35, 1) : 0;
+
+  const appearScale = progress > 0.3 ? Math.min((progress - 0.3) / 0.35, 1) : 0;
+  const pageFrac = docHeight > 0 ? scrollY / docHeight : 0;
+  const aboutFrac = docHeight > 0 ? sectionTops.about / docHeight : 0.2;
+  const contactFrac = docHeight > 0 ? sectionTops.contact / docHeight : 0.8;
+
+  let proximityScale = 1;
+  if (pageFrac > aboutFrac && pageFrac < contactFrac) {
+    const zoneProgress = (pageFrac - aboutFrac) / (contactFrac - aboutFrac);
+    proximityScale = 1 - 0.5 * Math.sin(zoneProgress * Math.PI);
+  }
+  const rightImgScale = appearScale * proximityScale;
 
   return (
     <>
