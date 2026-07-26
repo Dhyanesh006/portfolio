@@ -14,6 +14,8 @@ const LEVEL_COLORS = [
   "bg-[#39d353]",
 ];
 
+const LEVEL_COLORS_SOLID = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"];
+
 function getWeeks(days: ContributionDay[]): ContributionDay[][] {
   const weeks: ContributionDay[][] = [];
   let currentWeek: ContributionDay[] = [];
@@ -36,26 +38,13 @@ function cellKey(week: number, day: number): string {
   return `${week}-${day}`;
 }
 
-function PacManSprite({ frame }: { frame: number }) {
-  const mouthAngle = frame % 2 === 0 ? 0 : 25;
-  return (
-    <svg width="11" height="11" viewBox="0 0 100 100">
-      <path
-        d={`M50,50 L${50 + 50 * Math.cos((-mouthAngle * Math.PI) / 180)},${50 + 50 * Math.sin((-mouthAngle * Math.PI) / 180)} A50,50 0 1,1 ${50 + 50 * Math.cos((mouthAngle * Math.PI) / 180)},${50 + 50 * Math.sin((mouthAngle * Math.PI) / 180)} Z`}
-        fill="#FFD700"
-      />
-      <circle cx="50" cy="30" r="6" fill="#000" />
-    </svg>
-  );
-}
-
 export default function GitHubContributionGraph() {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [pacman, setPacman] = useState({ week: 0, day: 0 });
   const [eaten, setEaten] = useState<Set<string>>(new Set());
-  const [mouthFrame, setMouthFrame] = useState(0);
+  const [mouthOpen, setMouthOpen] = useState(true);
   const [started, setStarted] = useState(false);
   const weeksRef = useRef<ContributionDay[][]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -75,7 +64,7 @@ export default function GitHubContributionGraph() {
     const weeks = weeksRef.current;
     if (weeks.length === 0) return;
 
-    setMouthFrame((f) => f + 1);
+    setMouthOpen((m) => !m);
 
     setPacman((prev) => {
       let { week, day } = prev;
@@ -103,7 +92,7 @@ export default function GitHubContributionGraph() {
 
   useEffect(() => {
     if (started && !loading && contributions.length > 0) {
-      intervalRef.current = setInterval(advancePacman, 35);
+      intervalRef.current = setInterval(advancePacman, 40);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -162,19 +151,20 @@ export default function GitHubContributionGraph() {
                 return (
                   <div
                     key={day.date}
-                    className={`w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] rounded-sm transition-all duration-75 relative ${
-                      isPacmanHere
-                        ? "bg-transparent"
-                        : isEatenHere
-                        ? "bg-[#161b22]/30"
-                        : `${LEVEL_COLORS[day.level]} hover:ring-1 hover:ring-[#FFFFFF]/30`
-                    }`}
+                    className="w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] rounded-sm transition-all duration-75 relative"
                     title={`${day.count} contributions on ${day.date}`}
                   >
-                    {isPacmanHere && (
-                      <div className="absolute inset-0 flex items-center justify-center drop-shadow-[0_0_4px_rgba(250,204,21,0.9)]">
-                        <PacManSprite frame={mouthFrame} />
-                      </div>
+                    {isPacmanHere ? (
+                      <span className="absolute inset-0 flex items-center justify-center text-[11px] leading-none select-none drop-shadow-[0_0_4px_rgba(250,204,21,0.9)]">
+                        {mouthOpen ? "🟡" : "🟡"}
+                      </span>
+                    ) : isEatenHere ? (
+                      <div
+                        className="w-full h-full rounded-sm"
+                        style={{ backgroundColor: LEVEL_COLORS_SOLID[day.level] }}
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded-sm bg-[#3a3a3a] shadow-[inset_0_0_2px_rgba(255,255,255,0.15)]" />
                     )}
                   </div>
                 );
