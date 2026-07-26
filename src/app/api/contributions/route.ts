@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { GITHUB_USERNAME } from "@/lib/data";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 const QUERY = `
-  query ($username: String!, $from: DateTime!, $to: DateTime!) {
-    user(login: $username) {
+  query ($from: DateTime!, $to: DateTime!) {
+    viewer {
       contributionsCollection(from: $from, to: $to) {
         contributionCalendar {
           totalContributions
@@ -52,7 +51,6 @@ export async function GET() {
       body: JSON.stringify({
         query: QUERY,
         variables: {
-          username: GITHUB_USERNAME,
           from: from.toISOString(),
           to: to.toISOString(),
         },
@@ -69,7 +67,7 @@ export async function GET() {
 
     const json = await res.json();
     const calendar =
-      json.data?.user?.contributionsCollection?.contributionCalendar;
+      json.data?.viewer?.contributionsCollection?.contributionCalendar;
 
     if (!calendar) {
       return NextResponse.json({ days: [], total: 0 });
