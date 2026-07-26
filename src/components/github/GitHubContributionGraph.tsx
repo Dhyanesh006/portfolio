@@ -38,6 +38,25 @@ function cellKey(week: number, day: number): string {
   return `${week}-${day}`;
 }
 
+function PacManSprite({ open }: { open: boolean }) {
+  const angle = open ? 35 : 4;
+  const rad = (angle * Math.PI) / 180;
+  const tx = 50 + 50 * Math.cos(-rad);
+  const ty = 50 + 50 * Math.sin(-rad);
+  const bx = 50 + 50 * Math.cos(rad);
+  const by = 50 + 50 * Math.sin(rad);
+
+  return (
+    <svg viewBox="0 0 100 100" width="11" height="11" className="drop-shadow-[0_0_4px_rgba(250,204,21,0.9)]">
+      <path
+        d={`M50,50 L${tx},${ty} A50,50 0 1,0 ${bx},${by} Z`}
+        fill="#FFD700"
+      />
+      <circle cx="58" cy="30" r="5" fill="#000" />
+    </svg>
+  );
+}
+
 export default function GitHubContributionGraph() {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [loading, setLoading] = useState(true);
@@ -92,7 +111,7 @@ export default function GitHubContributionGraph() {
 
   useEffect(() => {
     if (started && !loading && contributions.length > 0) {
-      intervalRef.current = setInterval(advancePacman, 40);
+      intervalRef.current = setInterval(advancePacman, 100);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -155,9 +174,9 @@ export default function GitHubContributionGraph() {
                     title={`${day.count} contributions on ${day.date}`}
                   >
                     {isPacmanHere ? (
-                      <span className="absolute inset-0 flex items-center justify-center text-[11px] leading-none select-none drop-shadow-[0_0_4px_rgba(250,204,21,0.9)]">
-                        {mouthOpen ? "🟡" : "🟡"}
-                      </span>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <PacManSprite open={mouthOpen} />
+                      </div>
                     ) : isEatenHere ? (
                       <div
                         className="w-full h-full rounded-sm"
