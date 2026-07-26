@@ -65,6 +65,7 @@ export default function GitHubContributionGraph() {
   const [eaten, setEaten] = useState<Set<string>>(new Set());
   const [mouthOpen, setMouthOpen] = useState(true);
   const [started, setStarted] = useState(false);
+  const [completed, setCompleted] = useState(false);
   const weeksRef = useRef<ContributionDay[][]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -90,8 +91,7 @@ export default function GitHubContributionGraph() {
       const currentWeek = weeks[week];
 
       if (!currentWeek) {
-        setEaten(new Set());
-        return { week: 0, day: 0 };
+        return prev;
       }
 
       day++;
@@ -99,8 +99,9 @@ export default function GitHubContributionGraph() {
         day = 0;
         week++;
         if (week >= weeks.length) {
-          setEaten(new Set());
-          return { week: 0, day: 0 };
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          setCompleted(true);
+          return prev;
         }
       }
 
@@ -110,13 +111,24 @@ export default function GitHubContributionGraph() {
   }, []);
 
   useEffect(() => {
-    if (started && !loading && contributions.length > 0) {
+    if (started && !loading && contributions.length > 0 && !completed) {
       intervalRef.current = setInterval(advancePacman, 100);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [started, loading, contributions, advancePacman]);
+  }, [started, loading, contributions, advancePacman, completed]);
+
+  useEffect(() => {
+    if (completed) {
+      const timer = setTimeout(() => {
+        setEaten(new Set());
+        setPacman({ week: 0, day: 0 });
+        setCompleted(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [completed]);
 
   useEffect(() => {
     if (!loading && contributions.length > 0) {
