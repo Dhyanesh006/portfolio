@@ -70,23 +70,26 @@ export async function fetchGitHubData(): Promise<GitHubDataBundle> {
 
 export async function fetchContributions(): Promise<ContributionDay[]> {
   try {
-    const res = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/Dhyanesh006`,
-      { next: { revalidate: 3600 } }
-    );
+    const res = await fetch("/api/contributions", {
+      next: { revalidate: 1800 },
+    });
     if (!res.ok) return [];
     const data = await res.json();
-    const days: ContributionDay[] = [];
-    for (const week of data.contributions || []) {
-      for (const day of week) {
-        days.push({
-          date: day.date,
-          count: day.count,
-          level: day.level,
-        });
-      }
-    }
-    return days;
+    return (data.days || []).map(
+      (d: { date: string; count: number }) => ({
+        date: d.date,
+        count: d.count,
+        level: d.count === 0
+          ? 0
+          : d.count <= 3
+          ? 1
+          : d.count <= 6
+          ? 2
+          : d.count <= 9
+          ? 3
+          : 4,
+      })
+    );
   } catch {
     return [];
   }
