@@ -176,7 +176,7 @@ export default function GitHubContributionGraph() {
               {week.map((day, di) => {
                 const key = cellKey(wi, di);
                 const isPacmanHere =
-                  pacman.week === wi && pacman.day === di && started;
+                  pacman.week === wi && pacman.day === di && started && !completed;
                 const isEatenHere = eaten.has(key);
 
                 return (
