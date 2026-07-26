@@ -192,8 +192,9 @@ export default function Hero() {
       </motion.div>
     </section>
 
-    <div
-      className="fixed pointer-events-none z-50 hidden md:block"
+    <button
+      className="fixed z-50 hidden md:block cursor-pointer"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       style={{
         top: "50%",
         right: "clamp(1%, 3vw, 3%)",
@@ -201,6 +202,7 @@ export default function Hero() {
         opacity: rightImgOpacity,
         transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out",
       }}
+      aria-label="Go to top"
     >
       <div className="bubble-frame">
         <img
@@ -214,7 +216,7 @@ export default function Hero() {
         />
         <div className="bubble-tail" />
       </div>
-    </div>
+    </button>
   </>
   );
 }
